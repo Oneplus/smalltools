@@ -69,7 +69,7 @@ if __name__=="__main__":
             "--percent",
             dest="percent",
             type="float",
-            default="61.8",
+            default=0.618,
             help="use to specify percent")
 
     opt, args= opt_parser.parse_args()
@@ -104,10 +104,27 @@ if __name__=="__main__":
 
         while inst is not None:
             line_num += 1
-            #print inst
             inst = reader.get()
 
         sample_index = random.sample(xrange(line_num), opt.number)
+
+    elif opt.mode == "percent":
+
+        if opt.percent < 0.0 or opt.percent > 1.0:
+            msg = "percentage should be set between (0.0, 1.0)"
+            print >> sys.stderr, msg
+            exit(1)
+
+        line_num = 0
+        inst = reader.get()
+
+        while inst is not None:
+            line_num += 1
+            inst = reader.get()
+
+        sample_index_size = int(round(line_num * opt.percent))
+        sample_index = random.sample(xrange(line_num), sample_index_size)
+
 
     reader.seek(os.SEEK_SET)
     sample(reader, writer, sample_index)
