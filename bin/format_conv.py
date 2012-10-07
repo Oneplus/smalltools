@@ -5,8 +5,8 @@ import sys
 
 try:
     # module has been installed
-    from corpusproc.io import PostagReader
-    from corpusproc.io import SegmentWriter
+    from corpusproc.io import SegmentReader, PostagReader, ConllReader
+    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter
 except:
     # module not installed
     bin_path = os.path.realpath(__file__)
@@ -14,8 +14,8 @@ except:
     root_dir = os.path.join(bin_dir, "..")
     sys.path.append(root_dir)
 
-    from corpusproc.io import PostagReader
-    from corpusproc.io import SegmentWriter
+    from corpusproc.io import SegmentReader, PostagReader, ConllReader
+    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter
 
 from optparse import OptionParser
 
@@ -60,7 +60,18 @@ if __name__=="__main__":
         print >> sys.stderr, msg
         exit(1)
 
-    reader = createObject(opt.src[0].upper() + opt.src[1:] + "Reader", open(args[0]))
+    if len(args) < 1:
+        msg = "input file should be specified."
+        print >> sys.stderr, msg
+        exit(1)
+
+    try:
+        reader = createObject(opt.src[0].upper() + opt.src[1:] + "Reader", open(args[0]))
+    except:
+        msg = "failed to open file [%s]" % args[0]
+        print >> sys.stderr, msg
+        exit(1)
+
     writer = createObject(opt.dst[0].upper() + opt.dst[1:] + "Writer", sys.stdout)
 
     inst = reader.get()

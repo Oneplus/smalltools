@@ -22,4 +22,4 @@ class Instance(object):
             return 0
 
     def __str__(self):
-        print self.forms
+        return "\t".join(self.forms)

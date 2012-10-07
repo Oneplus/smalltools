@@ -9,15 +9,19 @@ class Reader(object):
     def get(self):
         pass
 
+    def seek(self, position):
+        self.fp.seek(0, 0)
+
 class SegmentReader(Reader):
     """ """
     def get(self):
         line = self.fp.readline()
 
-        if not line:
+        if line == "":
             return None
 
         line = line.strip()
+
         inst = Instance()
         inst.raw   = line
         inst.forms = line.split()
@@ -29,7 +33,7 @@ class PostagReader(Reader):
     def get(self):
         line = self.fp.readline()
 
-        if not line:
+        if line == "":
             return None
 
         line = line.strip()
@@ -40,6 +44,11 @@ class PostagReader(Reader):
         inst.postags = [word.rsplit("_")[1] for word in line.split()]
 
         return inst
+
+class ConllReader(Reader):
+    """ """
+    def get(self):
+        return None
 
 if __name__=="__main__":
     reader = SegmentReader(open("./data/segment.sample", "r"))
