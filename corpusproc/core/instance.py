@@ -18,4 +18,8 @@ class Instance(object):
     def __len__(self):
         if self.forms is not None:
             return len(self.forms)
-        else: return 0
+        else:
+            return 0
+
+    def __str__(self):
+        print self.forms
