@@ -23,8 +23,8 @@ class SegmentReader(Reader):
         line = line.strip()
 
         inst = Instance()
-        inst.raw   = line
         inst.forms = line.split()
+        inst.raw   = "".join(inst.forms)
 
         return inst
 
@@ -39,9 +39,9 @@ class PostagReader(Reader):
         line = line.strip()
 
         inst = Instance()
-        inst.raw     = line
         inst.forms   = [word.rsplit("_")[0] for word in line.split()]
         inst.postags = [word.rsplit("_")[1] for word in line.split()]
+        inst.raw     = "".join(inst.forms)
 
         return inst
 
