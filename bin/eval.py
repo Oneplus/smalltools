@@ -89,6 +89,27 @@ def evaluate(pred, gold, mode="segment"):
         else:
             return (reco_words, reco_pos, pred_words, gold_words)
 
+def report(results, mode="segment"):
+    if mode == "segment":
+        p = float(results[0])/results[1]*100
+        r = float(results[0])/results[2]*100
+        f = p*r*2/(p+r)
+        print "%d\t%d\t%d\t%.8f%%\t%.8f%%\t%.8f%%" % (results[0], results[1], results[2], p, r, f)
+
+    elif mode == "postag":
+        p = float(results[0])/results[1]*100
+        print "%d\t%d\t%.8f%%" % (results[0], results[1], p)
+
+    else:
+        p = float(results[0])/results[2]*100
+        r = float(results[0])/results[3]*100
+        f = p*r*2/(p+r)
+        pp = float(results[1])/results[2]*100
+        pr = float(results[1])/results[3]*100
+        pf = pp*pr*2/(pp+pr)
+        print "%d\t%d\%d\t%d\t%.8f%%\t%.8f%%\t%.8f%%\t%.8f%%\t%.8f%%\t%.8f%%" % (results[0],
+                results[1], results[2], results[3], p, r, f, pp, pr, pf)
+
 if __name__=="__main__":
     opt_parser = OptionParser()
     opt_parser.add_option("-f",
@@ -111,6 +132,12 @@ if __name__=="__main__":
             dest="goldfile",
             help="use to specify gold file.")
 
+    opt_parser.add_option("-a",
+            "--all",
+            dest="all",
+            action="store_true",
+            default=False,
+            help="use to specify detail handle.")
     opt, args = opt_parser.parse_args()
 
     if opt.mode not in ["segment", "postag", "joint"]:
@@ -144,17 +171,29 @@ if __name__=="__main__":
     while pred_inst is not None and gold_inst is not None:
         if opt.mode == "segment":
             num_recall, num_pred, num_gold = evaluate(pred_inst, gold_inst, opt.mode)
+
+            if opt.all:
+                report([num_recall, num_pred, num_gold], opt.mode)
+
             results[0] += num_recall
             results[1] += num_pred
             results[2] += num_gold
 
         elif opt.mode == "postag":
             num_recall, num_gold = evaluate(pred_inst, gold_inst, opt.mode)
+
+            if opt.all:
+                report([num_recall, num_gold], opt.mode)
+
             results[0] += num_recall
             results[1] += num_gold
 
         else:
             num_recall, num_recall_pos, num_pred, num_gold = evaluate(pred_inst, gold_inst, opt.mode)
+
+            if opt.all:
+                report([num_recall, num_recall_pos, num_pred, num_gold], opt.mode)
+
             results[0] += num_recall
             results[1] += num_recall_pos
             results[2] += num_pred
@@ -171,23 +210,4 @@ if __name__=="__main__":
         msg = "predict stream not end"
         print >> sys.stderr, msg
 
-    if opt.mode == "segment":
-        p = float(results[0])/results[1]*100
-        r = float(results[0])/results[2]*100
-        f = p*r*2/(p+r)
-        print "p=%.8f%% r=%.8f%% f=%.8f%%" % (p, r, f)
-
-    elif opt.mode == "postag":
-        p = float(results[0])/results[1]*100
-        print "p=%.8f%%" % p
-
-    else:
-        p = float(results[0])/results[2]*100
-        r = float(results[0])/results[3]*100
-        f = p*r*2/(p+r)
-        pp = float(results[1])/results[2]*100
-        pr = float(results[1])/results[3]*100
-        pf = pp*pr*2/(pp+pr)
-        print "seg: p=%.8f%% r=%.8f%% f=%.8f%%" % (p, r, f)
-        print "pos: p=%.8f%% r=%.8f%% f=%.8f%%" % (p, r, f)
-
+    report(results, opt.mode)
