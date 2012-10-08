@@ -126,5 +126,5 @@ if __name__=="__main__":
         sample_index = random.sample(xrange(line_num), sample_index_size)
 
 
-    reader.seek(os.SEEK_SET)
+    reader.seek(0, os.SEEK_SET)
     sample(reader, writer, sample_index)

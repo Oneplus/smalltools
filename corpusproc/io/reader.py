@@ -9,8 +9,8 @@ class Reader(object):
     def get(self):
         pass
 
-    def seek(self, position):
-        self.fp.seek(0, 0)
+    def seek(self, offset, whence=0):
+        self.fp.seek(offset, whence)
 
 class SegmentReader(Reader):
     """ """
