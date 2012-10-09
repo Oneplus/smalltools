@@ -24,6 +24,6 @@ __Sampler___
 
 __Evaluator__
 
-`2.7 ./bin/eval.py --format=segment --mode=segment --eval=./data/segment_output_sample.dat --gold=./data/segment_sample.dat -a`
+`python ./bin/eval.py --format=segment --mode=segment --eval=./data/segment_output_sample.dat --gold=./data/segment_sample.dat -a`
 
 
