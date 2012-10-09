@@ -14,15 +14,15 @@ USAGE
 Suppose you are in root dir of the project, you can run format converter in the
 following command:
 
-## Format Converter
+### Format Converter
 
 ```python ./bin/format_conv.py --from=postag --to=segment ./data/postag_sample.dat```
 
-## Sampler
+### Sampler
 
 ```python ./bin/sample.py --format=segment --mode=number --number=2 ./data/segment_sample.dat```
 
-## Evaluator
+### Evaluator
 
 ```python ./bin/eval.py --format=segment --mode=segment --eval=./data/segment_output_sample.dat --gold=./data/segment_sample.dat -a```
 
