@@ -1,0 +1,20 @@
+1	上海	_	NR	_	_	2	NMOD	_	_
+2	浦东	_	NR	_	_	6	NMOD	_	_
+3	开发	_	NN	_	_	6	NMOD	_	_
+4	与	_	CC	_	_	6	NMOD	_	_
+5	法制	_	NN	_	_	6	NMOD	_	_
+6	建设	_	NN	_	_	7	SUB	_	_
+7	同步	_	VV	_	_	0	ROOT	_	_
+
+1	新华社	_	NN	_	_	10	DEP	_	_
+2	上海	_	NR	_	_	10	DEP	_	_
+3	二月	_	NT	_	_	10	DEP	_	_
+4	十日	_	NT	_	_	10	DEP	_	_
+5	电	_	NN	_	_	10	DEP	_	_
+6	（	_	PU	_	_	10	P	_	_
+7	记者	_	NN	_	_	10	DEP	_	_
+8	谢金虎	_	NR	_	_	10	DEP	_	_
+9	、	_	PU	_	_	10	P	_	_
+10	张持坚	_	NR	_	_	0	ROOT	_	_
+11	）	_	PU	_	_	10	P	_	_
+
