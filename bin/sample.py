@@ -57,7 +57,7 @@ if __name__=="__main__":
             "--mode",
             dest="mode",
             default="num",
-            help="use to specify mode")
+            help="use to specify mode [number,percent]")
 
     opt_parser.add_option("-n",
             "--number",
