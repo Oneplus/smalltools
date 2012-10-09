@@ -16,14 +16,19 @@ following command:
 
 ### Format Converter
 
-```python ./bin/format_conv.py --from=postag --to=segment ./data/postag_sample.dat```
+```
+python ./bin/format_conv.py --from=postag --to=segment ./data/postag_sample.dat
+```
 
 ### Sampler
 
-```python ./bin/sample.py --format=segment --mode=number --number=2 ./data/segment_sample.dat```
+```
+python ./bin/sample.py --format=segment --mode=number --number=2 ./data/segment_sample.dat
+```
 
 ### Evaluator
 
-```python ./bin/eval.py --format=segment --mode=segment --eval=./data/segment_output_sample.dat --gold=./data/segment_sample.dat -a```
-
+```
+python ./bin/eval.py --format=segment --mode=segment --eval=./data/segment_output_sample.dat --gold=./data/segment_sample.dat -a
+```
 
