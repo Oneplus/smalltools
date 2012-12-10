@@ -8,6 +8,7 @@ try:
     # module has been installed
     from corpusproc.io import SegmentReader, PostagReader, ConllReader
     from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter
+    from corpusproc.io import CONV_FORMATS
 except:
     # module not installed
     bin_path = os.path.realpath(__file__)
@@ -17,6 +18,7 @@ except:
 
     from corpusproc.io import SegmentReader, PostagReader, ConllReader
     from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter
+    from corpusproc.io import CONV_FORMATS
 
 from optparse import OptionParser
 
@@ -140,12 +142,12 @@ if __name__=="__main__":
             help="use to specify detail handle.")
     opt, args = opt_parser.parse_args()
 
-    if opt.mode not in ["segment", "postag", "joint"]:
+    if opt.mode not in CONV_FORMATS:
         msg = "unknown mode [%s]" % opt.mode
         print >> sys.stderr, msg
         exit(1)
 
-    if opt.format not in ["segment", "postag", "conll"]:
+    if opt.format not in CONV_FORMATS:
         msg = "unknown corpus format [%s]" % opt.format
         print >> sys.stderr, msg
         exit(1)

@@ -50,6 +50,11 @@ class ConllReader(Reader):
     def get(self):
         return None
 
+class PlainReader(Reader):
+    """ """
+    def get(self):
+        return None
+
 if __name__=="__main__":
     reader = SegmentReader(open("./data/segment.sample", "r"))
 

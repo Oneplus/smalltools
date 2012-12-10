@@ -23,8 +23,12 @@ class PostagWriter(Writer):
 class ConllWriter(Writer):
     """ """
     def write(self, instance):
-        print >> self.fp
+        pass
 
+class PlainWriter(Writer):
+    """ """
+    def write(self, instance):
+        pass
 
 if __name__=="__main__":
     pass
