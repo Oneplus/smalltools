@@ -6,8 +6,8 @@ import random
 
 try:
     # module has been installed
-    from corpusproc.io import SegmentReader, PostagReader, ConllReader
-    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter
+    from corpusproc.io import PlainReader, SegmentReader, PostagReader, ConllReader
+    from corpusproc.io import PlainWriter, SegmentWriter, PostagWriter, ConllWriter
     from corpusproc.io import FORMATS
     from corpusproc.detect import detect
 except:
@@ -17,8 +17,8 @@ except:
     root_dir = os.path.join(bin_dir, "..")
     sys.path.append(root_dir)
 
-    from corpusproc.io import SegmentReader, PostagReader, ConllReader
-    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter
+    from corpusproc.io import PlainReader, SegmentReader, PostagReader, ConllReader
+    from corpusproc.io import PlainWriter, SegmentWriter, PostagWriter, ConllWriter
     from corpusproc.io import FORMATS
     from corpusproc.detect import detect
 
@@ -56,7 +56,7 @@ if __name__=="__main__":
         exit(1)
 
     if opt.format is None or opt.format not in FORMATS:
-        msg = "unknown corpus format, run auto detect corpus format"
+        msg = "# (unknown corpus format, run auto detect corpus format)"
         print >> sys.stderr, msg
         # detect corpus type
         text=""
@@ -66,7 +66,7 @@ if __name__=="__main__":
             if line_count >= 1000:
                 break
         opt.format = detect(text)
-        msg = "auto detect result show corpus in [%s] format" % opt.format
+        msg = "# (auto detect result show corpus in [%s] format)" % opt.format
         print >> sys.stderr, msg
         fp.seek(0)
 
@@ -82,16 +82,22 @@ if __name__=="__main__":
     inst = reader.get()
     while inst is not None:
         num_sent += 1
-        num_word += len(inst) 
-        for form in inst.forms:
-            chars = form.decode("utf8")
-            num_char += len(chars)
+        num_word += len(inst)
+        if opt.format == "plain":
+            num_char += len(inst.raw.decode(opt.encoding))
+        else:
+            for form in inst.forms:
+                chars = form.decode(opt.encoding)
+                num_char += len(chars)
 
         inst = reader.get()
 
     print >> sys.stderr, "Number characters:  %d" % num_char
-    print >> sys.stderr, "Number words:       %d" % num_word
+    print >> sys.stderr, "Number words:       %s" % (
+            "%.2f" % num_word if num_word > 0 else "-")
     print >> sys.stderr, "Number sentences:   %d" % num_sent
-    print >> sys.stderr, "Average words/sent: %.2f" % (float(num_word)/num_sent)
-    print >> sys.stderr, "Average chars/sent: %.2f" % (float(num_char)/num_sent)
-    print >> sys.stderr, "Average chars/word: %.2f" % (float(num_char)/num_word)
+    print >> sys.stderr, "Average words/sent: %s" % (
+            "%.2f" % (float(num_word)/num_sent) if num_word > 0 else "-")
+    print >> sys.stderr, "Average chars/sent: %s" % (float(num_char)/num_sent)
+    print >> sys.stderr, "Average chars/word: %s" % (
+            "%.2f" % (float(num_char)/num_word) if num_word > 0 else "-")

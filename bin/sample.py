@@ -6,9 +6,9 @@ import random
 
 try:
     # module has been installed
-    from corpusproc.io import SegmentReader, PostagReader, ConllReader
-    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter
-    from corpusproc.io import CONV_FORMATS
+    from corpusproc.io import SegmentReader, PostagReader, ConllReader, PlainReader
+    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter, PlainWriter
+    from corpusproc.io import FORMATS
 except:
     # module not installed
     bin_path = os.path.realpath(__file__)
@@ -16,9 +16,9 @@ except:
     root_dir = os.path.join(bin_dir, "..")
     sys.path.append(root_dir)
 
-    from corpusproc.io import SegmentReader, PostagReader, ConllReader
-    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter
-    from corpusproc.io import CONV_FORMATS
+    from corpusproc.io import SegmentReader, PostagReader, ConllReader, PlainReader
+    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter, PlainWriter
+    from corpusproc.io import FORMATS
 
 from optparse import OptionParser
 
@@ -81,7 +81,7 @@ if __name__=="__main__":
         print >> sys.stderr, msg
         exit(1)
 
-    if opt.format not in CONV_FORMATS:
+    if opt.format not in FORMATS:
         msg = "unknown corpus format [%s]" % opt.format
         print >> sys.stderr, msg
         exit(1)

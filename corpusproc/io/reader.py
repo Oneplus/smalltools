@@ -53,7 +53,14 @@ class ConllReader(Reader):
 class PlainReader(Reader):
     """ """
     def get(self):
-        return None
+        line = self.fp.readline()
+        if line == "":
+            return None
+        line = line.strip()
+        inst = Instance()
+        inst.raw = line
+
+        return inst
 
 if __name__=="__main__":
     reader = SegmentReader(open("./data/segment.sample", "r"))

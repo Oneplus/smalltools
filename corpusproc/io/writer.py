@@ -28,7 +28,7 @@ class ConllWriter(Writer):
 class PlainWriter(Writer):
     """ """
     def write(self, instance):
-        pass
+        print >> self.fp, instance.raw
 
 if __name__=="__main__":
     pass
