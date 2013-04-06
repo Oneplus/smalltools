@@ -4,7 +4,7 @@ import sys
 
 try:
     # module has been installed
-    from corpusproc.conv import sbc2dbc, dbc2sbc
+    from corpusproc.utils import sbc2dbc, dbc2sbc
 except:
     # module not installed
     bin_path = os.path.realpath(__file__)
@@ -12,7 +12,7 @@ except:
     root_dir = os.path.join(bin_dir, "..")
     sys.path.append(root_dir)
 
-    from corpusproc.conv import sbc2dbc, dbc2sbc
+    from corpusproc.utils import sbc2dbc, dbc2sbc
 
 if __name__=="__main__":
     try:
