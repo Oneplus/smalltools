@@ -95,8 +95,11 @@ def report(results, mode="segment"):
     if mode == "segment":
         p = float(results[0])/results[1]*100
         r = float(results[0])/results[2]*100
-        f = p*r*2/(p+r)
-        print "%d\t%d\t%d\t%.8f%%\t%.8f%%\t%.8f%%" % (results[0], results[1], results[2], p, r, f)
+        try:
+            f = p*r*2/(p+r)
+            print "%d\t%d\t%d\t%.8f%%\t%.8f%%\t%.8f%%" % (results[0], results[1], results[2], p, r, f)
+        except:
+            pass
 
     elif mode == "postag":
         p = float(results[0])/results[1]*100
