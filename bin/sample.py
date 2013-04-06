@@ -53,7 +53,7 @@ if __name__=="__main__":
     opt_parser.add_option("-f",
             "--format",
             dest="format",
-            help="use to specify format")
+            help="use to specify format[segment,postag,plain]")
 
     opt_parser.add_option("-m",
             "--mode",
@@ -128,5 +128,5 @@ if __name__=="__main__":
         sample_index = random.sample(xrange(line_num), sample_index_size)
 
 
-    reader.seek(0, os.SEEK_SET)
+    reader.seek(0, 0)
     sample(reader, writer, sample_index)
