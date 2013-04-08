@@ -6,7 +6,6 @@ setup(
         packages=['corpusproc',
             'corpusproc.utils',
             'corpusproc.core',
-            'corpusproc.conv',
             'corpusproc.detect',
             'corpusproc.io',],
         license='',
