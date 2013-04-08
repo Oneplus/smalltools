@@ -1,4 +1,4 @@
-from chartypes import sbc, dbc
+from settings import sbc, dbc
 
 def sbc2dbc(ch, encoding=None):
     """
