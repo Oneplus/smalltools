@@ -83,7 +83,7 @@ if __name__=="__main__":
         exit(1)
 
     inst = reader.get()
-    insts = [inst]
+    insts = []
     line_num = 0
 
     while inst is not None:
@@ -107,6 +107,7 @@ if __name__=="__main__":
             config[idx]["from"] = f
             config[idx]["to"] = f + die
             f += die
+        config[-1]["to"] = line_num
 
     print config
     for c in config:
