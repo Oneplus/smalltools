@@ -48,7 +48,30 @@ class PostagReader(Reader):
 class ConllReader(Reader):
     """ """
     def get(self):
-        return None
+        line = self.fp.readline()
+        if not line:
+            return None
+
+        inst = Instance()
+        inst.forms = []
+        inst.postags = []
+        inst.raw = ""
+        line = line.strip()
+        while len(line) > 0:
+            splits = line.split()
+            inst.forms.append( splits[1] )
+            inst.postags.append( splits[4] )
+            inst.raw += splits[1]
+
+            line = self.fp.readline()
+            if not line:
+                break
+
+            line = line.strip()
+
+        return inst
+
+
 
 class PlainReader(Reader):
     """ """
