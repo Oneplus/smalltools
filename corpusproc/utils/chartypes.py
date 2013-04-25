@@ -91,5 +91,5 @@ def chartype(ch, lvl=1, encoding=None):
     if ch in sbc_lookup["punc"]:
         return [CHAR_PUNC,]
 
-    return [OTHER,]
+    return [CHAR_OTHER,]
 
