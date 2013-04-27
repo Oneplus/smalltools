@@ -1,5 +1,5 @@
 INTRODUCTION
-------------
+============
 
 A collection of text processing script. Following function will be implemented.
 
@@ -11,6 +11,7 @@ A collection of text processing script. Following function will be implemented.
 
 USAGE
 -----
+
 Suppose you are in root dir of the project, you can run format converter in the
 following command:
 
@@ -32,3 +33,9 @@ python ./bin/sample.py --format=segment --mode=number --number=2 ./data/segment_
 python ./bin/eval.py --format=segment --mode=segment --eval=./data/segment_output_sample.dat --gold=./data/segment_sample.dat -a
 ```
 
+TEST
+----
+
+```
+python -m corpusproc.test.utils_test
+```
