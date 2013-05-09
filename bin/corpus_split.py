@@ -92,7 +92,7 @@ if __name__=="__main__":
         inst = reader.get()
 
     if opt.random:
-        insts.shuffle()
+        random.shuffle(insts)
 
     if opt.mode == "number":
         f = 0
@@ -109,7 +109,6 @@ if __name__=="__main__":
             f += die
         config[-1]["to"] = line_num
 
-    print config
     for c in config:
         for i in insts[c["from"]: c["to"]]:
             c["handle"].write(i)
