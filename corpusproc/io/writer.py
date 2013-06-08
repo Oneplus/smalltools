@@ -23,7 +23,18 @@ class PostagWriter(Writer):
 class ConllWriter(Writer):
     """ """
     def write(self, instance):
-        pass
+        L = len(instance);
+        for i in xrange(L):
+            print >> self.fp, "%d\t%s\t%s\t%s_\t_\t%s\t%s\t_\t%s" % (
+                    i + 1,
+                    instance.forms[i],
+                    ("_" if not instance.lemmas  else instance.lemmas[i]),
+                    ("_" if not instance.postags else instance.postags[i]),
+                    ("_" if not instance.heads   else str(instance.heads[i])),
+                    ("_" if not instance.deprels else instance.deprels[i]),
+                    ("_" if not instance.extras  else instance.extras[i]))
+
+        print >> self.fp
 
 class PlainWriter(Writer):
     """ """

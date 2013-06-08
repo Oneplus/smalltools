@@ -14,6 +14,8 @@ class Instance(object):
         self.cpostags   = None
         self.postags    = None
         self.heads      = None
+        self.deprels    = None
+        self.extras     = None
 
     def __len__(self):
         if self.forms is not None:
