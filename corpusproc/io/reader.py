@@ -57,6 +57,7 @@ class ConllReader(Reader):
         inst.postags = []
         inst.heads   = []
         inst.deprels = []
+        inst.extras  = []
         inst.raw = ""
         line = line.strip()
         while len(line) > 0:
@@ -65,6 +66,8 @@ class ConllReader(Reader):
             inst.postags.append( splits[3] )
             inst.heads.append( int(splits[6]) )
             inst.deprels.append( splits[7] )
+            if splits[9] != "_":
+                inst.extras.append( splits[7] )
             inst.raw += splits[1]
 
             line = self.fp.readline()
@@ -73,6 +76,8 @@ class ConllReader(Reader):
 
             line = line.strip()
 
+        if len(inst.extras) == 0:
+            inst.extras = None
         return inst
 
 class PlainReader(Reader):

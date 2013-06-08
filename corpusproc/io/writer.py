@@ -25,7 +25,7 @@ class ConllWriter(Writer):
     def write(self, instance):
         L = len(instance);
         for i in xrange(L):
-            print >> self.fp, "%d\t%s\t%s\t%s_\t_\t%s\t%s\t_\t%s" % (
+            print >> self.fp, "%d\t%s\t%s\t%s\t_\t_\t%s\t%s\t_\t%s" % (
                     i + 1,
                     instance.forms[i],
                     ("_" if not instance.lemmas  else instance.lemmas[i]),
