@@ -1,4 +1,4 @@
-from corpusproc.core import Instance
+from smalltools.core import Instance
 
 class Reader(object):
     """ construct the reader with file handle. """

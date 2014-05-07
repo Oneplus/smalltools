@@ -13,7 +13,11 @@ from settings import \
         CHAR_PUNC_DBC_NORMAL, CHAR_PUNC_DBC_CHINESE, CHAR_PUNC_DBC_EXT, \
         CHAR_OTHER
 
+
 def chartype(ch, lvl=1, encoding=None):
+    '''
+    Get type of character
+    '''
     if encoding is not None:
         ch = ch.decode(encoding)
 

@@ -6,9 +6,9 @@ import random
 
 try:
     # module has been installed
-    from corpusproc.io import SegmentReader, PostagReader, ConllReader, PlainReader
-    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter, PlainWriter
-    from corpusproc.io import FORMATS
+    from smalltools.io import SegmentReader, PostagReader, ConllReader, PlainReader
+    from smalltools.io import SegmentWriter, PostagWriter, ConllWriter, PlainWriter
+    from smalltools.io import FORMATS
 except:
     # module not installed
     bin_path = os.path.realpath(__file__)
@@ -16,9 +16,9 @@ except:
     root_dir = os.path.join(bin_dir, "..")
     sys.path.append(root_dir)
 
-    from corpusproc.io import SegmentReader, PostagReader, ConllReader, PlainReader
-    from corpusproc.io import SegmentWriter, PostagWriter, ConllWriter, PlainWriter
-    from corpusproc.io import FORMATS
+    from smalltools.io import SegmentReader, PostagReader, ConllReader, PlainReader
+    from smalltools.io import SegmentWriter, PostagWriter, ConllWriter, PlainWriter
+    from smalltools.io import FORMATS
 
 from optparse import OptionParser
 

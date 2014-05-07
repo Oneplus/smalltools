@@ -12,10 +12,10 @@ SUPPORTED_MODES = set([
 
 try:
     # module has been installed
-    from corpusproc.io      import SegmentReader, PostagReader, Conlleader
-    from corpusproc.io      import SegmentWriter, PostagWriter, ConllWriter
-    from corpusproc.io      import CONV_FORMATS
-    from corpusproc.lang    import Chinese, English, Danish
+    from smalltools.io      import SegmentReader, PostagReader, Conlleader
+    from smalltools.io      import SegmentWriter, PostagWriter, ConllWriter
+    from smalltools.io      import CONV_FORMATS
+    from smalltools.lang    import Chinese, English, Danish
 except ImportError:
     # module not installed
     bin_path = os.path.realpath(__file__)
@@ -23,10 +23,10 @@ except ImportError:
     root_dir = os.path.join(bin_dir, "..")
     sys.path.append(root_dir)
 
-    from corpusproc.io      import SegmentReader, PostagReader, ConllReader
-    from corpusproc.io      import SegmentWriter, PostagWriter, ConllWriter
-    from corpusproc.io      import CONV_FORMATS
-    from corpusproc.lang    import Chinese, English, Danish
+    from smalltools.io      import SegmentReader, PostagReader, ConllReader
+    from smalltools.io      import SegmentWriter, PostagWriter, ConllWriter
+    from smalltools.io      import CONV_FORMATS
+    from smalltools.lang    import Chinese, English, Danish
 
 def createObject(className, * args):
     cls = globals()[className]
