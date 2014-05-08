@@ -31,6 +31,7 @@ sys.path.insert(0, os.path.abspath('/home/yijialiu/work/smalltools/'))
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
+    'sphinxcontrib.napoleon',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -47,7 +48,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'smalltools'
-copyright = u'2014, Author'
+copyright = u'2014, Liu Yijia'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

@@ -12,6 +12,14 @@ def _argmax(dict):
     return max_argc
 
 def detect(corpus):
+    '''
+    Detect the potential format of the input corpus.
+
+    Args:
+        corpus (str): The input corpus.
+    Return:
+        str: The potential format of the input corpus.
+    '''
     vote_box = {
             "plain":        0,
             "segment":      0,

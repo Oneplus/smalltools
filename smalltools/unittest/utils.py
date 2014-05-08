@@ -17,8 +17,6 @@ from ..utils.chartypes import \
 
 from ..utils.wordtypes import URL, ENG, DIG, NONE
 
-from ..utils.word2tags import BIstyle, BIESstyle, BB2B3IESstyle
-
 class UtilsTest(TestCase):
 
     def setUp(self):
@@ -77,11 +75,6 @@ class UtilsTest(TestCase):
     def testFastStrDbc2Sbc(self):
         self.assertEquals(fast_str_dbc2sbc(u"Ａ１ｂ"), "A1b")
 
-    def testWord2Tags(self):
-        self.assertEquals(BIstyle("word"),  ["B", "I", "I", "I"])
-        self.assertEquals(BIstyle("am"),    ["B", "I"])
-        self.assertEquals(BIstyle("I"),     ["B"])
-        self.assertEquals(BIESstyle("are"), ["B", "I", "E"])
 
 if __name__=="__main__":
     main()

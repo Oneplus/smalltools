@@ -1,41 +1,30 @@
-INTRODUCTION
-============
+Smalltools
+==========
+[![Build Status](https://travis-ci.org/Oneplus/smalltools.svg?branch=master)](https://travis-ci.org/Oneplus/smalltools)
 
-A collection of text processing script. Following function will be implemented.
+死毛兔, A collection of text processing script. Functions implemented includes
 
-* Format Converter  : convert corpus between different format [fin]
-* Sampler           : sample [fin]
-* Filter            : filter corpus by certain rule
-* Spliter           : split corpus into train, devolop and test set
-* Evaluator         : evaluate p, r and f score between gold and predicate result [fin]
+* Single byte/double byte conversion
+* Data format converter, supported format includes
+    - segmented
+    - postagged
+    - CoNLL
+* Chinese word spliter
+    - Recognized certain sequence (like numeric, English word) as character by user defined regex
+* Nested bracketed (under-construction)
+* Regex (under-construction)
+* Evaluator (under-construction)
+* Significate tester (under-construction)
 
-USAGE
------
+Documents
+---------
 
-Suppose you are in root dir of the project, you can run format converter in the
-following command:
+Please visit [http://oneplus.github.io/smalltools/](http://oneplus.github.io/smalltools/)
 
-### Format Converter
-
-```
-python ./bin/format_conv.py --from=postag --to=segment ./data/postag_sample.dat
-```
-
-### Sampler
-
-```
-python ./bin/sample.py --format=segment --mode=number --number=2 ./data/segment_sample.dat
-```
-
-### Evaluator
+Unittest
+--------
 
 ```
-python ./bin/eval.py --format=segment --mode=segment --eval=./data/segment_output_sample.dat --gold=./data/segment_sample.dat -a
-```
-
-TEST
-----
-
-```
-python -m corpusproc.test.utils_test
+python -m smalltools.unittest.utils
+python -m smalltools.unittest.regex
 ```

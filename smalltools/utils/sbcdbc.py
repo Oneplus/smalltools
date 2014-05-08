@@ -10,19 +10,13 @@ def sbc2dbc(ch, flags=0x1111, encoding=None):
     Convert single bit character to double bit character.
     Return double bit character in unicode
 
-    Parameters
-    ----------
-    ch : str or unicode
-        The character
-    flags : int
-        The converton flags
-    encoding : str
-        The encoding
+    Args:
+        ch (str or unicode): The character
+        flags (int): The converton flags
+        encoding (str): The encoding
 
-    Return
-    ------
-    ch : unicode
-        the converted character
+    Returns:
+        unicode: The converted character
     '''
     if encoding is not None:
         ch = ch.decode(encoding)
@@ -62,19 +56,13 @@ def dbc2sbc(ch, flags=0x1111, encoding=None):
     Convert double bit character to single bit character.
     Return single bit character in unicode.
 
-    Parameters
-    ----------
-    ch : str or unicode
-        The character
-    flags : int
-        The convertion flags
-    encoding : str
-        The encoding
+    Args:
+        ch (str or unicode): The character
+        flags (int): The converton flags
+        encoding (str): The encoding
 
-    Return
-    ------
-    ch : unicode
-        the converted character
+    Returns:
+        unicode: The converted character
     '''
     if encoding is not None:
         ch = ch.decode(encoding)
@@ -125,19 +113,13 @@ def str_sbc2dbc(ustring, flags=0x1111, encoding=None):
     Convert str in single byte to double byte character by character.
     It is very slow.
 
-    Parameters
-    ----------
-    ustring : str or unicode
-        The string to be converted
-    flags : int
-        The converton flags
-    encoding : str
-        The encoding
+    Args:
+        ustring (str or unicode): The string
+        flags (int): The converton flags
+        encoding (str): The encoding
 
-    Returns
-    -------
-    rstring : unicode
-        The converted string
+    Returns:
+        unicode: The converted string
     '''
     if encoding is not None:
         ustring = ustring.decode(encoding)
@@ -150,20 +132,13 @@ def str_dbc2sbc(ustring, flags=0x1111, encoding=None):
     Convert str in single byte to double byte character by character
     It is very slow.
 
-    Parameters
-    ----------
-    ustring : str or unicode
-        The string to be converted
-    flags : int
-        The converton flags
-    encoding : str
-        The encoding
+    Args:
+        ustring (str or unicode): The string
+        flags (int): The converton flags
+        encoding (str): The encoding
 
-    Returns
-    -------
-    rstring : unicode
-        The converted string
-
+    Returns:
+        unicode: The converted string
     '''
     if encoding is not None:
         ustring = ustring.decode(encoding)
@@ -172,7 +147,7 @@ def str_dbc2sbc(ustring, flags=0x1111, encoding=None):
 
 
 def fast_dbc2sbc(ch, encoding=None):
-    """ 
+    """
     A faster implement of convertion from double byte character
     to single byte character
     """
@@ -195,8 +170,8 @@ def fast_dbc2sbc(ch, encoding=None):
 
 
 def fast_sbc2dbc(ch, encoding=None):
-    """ 
-    A faster implement of convertion from single byte character 
+    """
+    A faster implement of convertion from single byte character
     to double byte character
     """
     if encoding is not None:
@@ -212,14 +187,14 @@ def fast_sbc2dbc(ch, encoding=None):
         if inside_code==0x0020:
             inside_code=0x3000
         else:
-            inside_code+=0xfee0 
+            inside_code+=0xfee0
         return unichr(inside_code)
 
     return ch
 
 
 def fast_str_dbc2sbc(ustring, encoding=None):
-    """ 
+    """
     convert unicode string in double byte character
     to single byte character
     """
@@ -243,7 +218,7 @@ def fast_str_dbc2sbc(ustring, encoding=None):
 
 
 def fast_str_sbc2dbc(ustring, encoding=None):
-    """ 
+    """
     convert unicode string in single byte character
     to double byte character
     """
@@ -262,7 +237,7 @@ def fast_str_sbc2dbc(ustring, encoding=None):
             if inside_code==0x0020:
                 inside_code=0x3000
             else:
-                inside_code+=0xfee0 
+                inside_code+=0xfee0
             rstring += unichr(inside_code)
 
     return rstring

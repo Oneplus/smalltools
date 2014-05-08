@@ -1,1 +1,2 @@
-from word2char import WordToCharacters
+from word2char import WordToCharacters, \
+                      WordToCharactersWithRegex

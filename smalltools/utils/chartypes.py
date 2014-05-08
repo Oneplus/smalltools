@@ -17,6 +17,14 @@ from settings import \
 def chartype(ch, lvl=1, encoding=None):
     '''
     Get type of character
+
+    Args:
+        ch (str or unicode): The character
+        lvl (int): The detect level
+        encoding (str): The encoding
+
+    Return:
+        list(int): The chartype in different level
     '''
     if encoding is not None:
         ch = ch.decode(encoding)
