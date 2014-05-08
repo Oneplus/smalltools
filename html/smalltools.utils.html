@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>smalltools.utils package &mdash; smalltools  documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="smalltools  documentation" href="index.html" />
+    <link rel="up" title="smalltools package" href="smalltools.html" />
+    <link rel="prev" title="smalltools.segment package" href="smalltools.segment.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="smalltools.segment.html" title="smalltools.segment package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">smalltools  documentation</a> &raquo;</li>
+          <li><a href="smalltools.html" accesskey="U">smalltools package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="smalltools-utils-package">
+<h1>smalltools.utils package<a class="headerlink" href="#smalltools-utils-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-smalltools.utils.chartypes">
+<span id="smalltools-utils-chartypes-module"></span><h2>smalltools.utils.chartypes module<a class="headerlink" href="#module-smalltools.utils.chartypes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="smalltools.utils.chartypes.chartype">
+<tt class="descclassname">smalltools.utils.chartypes.</tt><tt class="descname">chartype</tt><big>(</big><em>ch</em>, <em>lvl=1</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/chartypes.html#chartype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.chartypes.chartype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get type of character</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-smalltools.utils.sbcdbc">
+<span id="smalltools-utils-sbcdbc-module"></span><h2>smalltools.utils.sbcdbc module<a class="headerlink" href="#module-smalltools.utils.sbcdbc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="smalltools.utils.sbcdbc.dbc2sbc">
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">dbc2sbc</tt><big>(</big><em>ch</em>, <em>flags=4369</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.dbc2sbc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert double bit character to single bit character.
+Return single bit character in unicode.</p>
+<dl class="docutils">
+<dt>ch <span class="classifier-delimiter">:</span> <span class="classifier">str or unicode</span></dt>
+<dd>The character</dd>
+<dt>flags <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The convertion flags</dd>
+<dt>encoding <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>The encoding</dd>
+</dl>
+<dl class="docutils">
+<dt>ch <span class="classifier-delimiter">:</span> <span class="classifier">unicode</span></dt>
+<dd>the converted character</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="smalltools.utils.sbcdbc.fast_dbc2sbc">
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">fast_dbc2sbc</tt><big>(</big><em>ch</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#fast_dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.fast_dbc2sbc" title="Permalink to this definition">¶</a></dt>
+<dd><p>A faster implement of convertion from double byte character
+to single byte character</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="smalltools.utils.sbcdbc.fast_sbc2dbc">
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">fast_sbc2dbc</tt><big>(</big><em>ch</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#fast_sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.fast_sbc2dbc" title="Permalink to this definition">¶</a></dt>
+<dd><p>A faster implement of convertion from single byte character 
+to double byte character</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="smalltools.utils.sbcdbc.fast_str_dbc2sbc">
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">fast_str_dbc2sbc</tt><big>(</big><em>ustring</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#fast_str_dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.fast_str_dbc2sbc" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert unicode string in double byte character
+to single byte character</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="smalltools.utils.sbcdbc.fast_str_sbc2dbc">
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">fast_str_sbc2dbc</tt><big>(</big><em>ustring</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#fast_str_sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.fast_str_sbc2dbc" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert unicode string in single byte character
+to double byte character</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="smalltools.utils.sbcdbc.sbc2dbc">
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">sbc2dbc</tt><big>(</big><em>ch</em>, <em>flags=4369</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.sbc2dbc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert single bit character to double bit character.
+Return double bit character in unicode</p>
+<dl class="docutils">
+<dt>ch <span class="classifier-delimiter">:</span> <span class="classifier">str or unicode</span></dt>
+<dd>The character</dd>
+<dt>flags <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The converton flags</dd>
+<dt>encoding <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>The encoding</dd>
+</dl>
+<dl class="docutils">
+<dt>ch <span class="classifier-delimiter">:</span> <span class="classifier">unicode</span></dt>
+<dd>the converted character</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="smalltools.utils.sbcdbc.str_dbc2sbc">
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">str_dbc2sbc</tt><big>(</big><em>ustring</em>, <em>flags=4369</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#str_dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.str_dbc2sbc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert str in single byte to double byte character by character
+It is very slow.</p>
+<dl class="docutils">
+<dt>ustring <span class="classifier-delimiter">:</span> <span class="classifier">str or unicode</span></dt>
+<dd>The string to be converted</dd>
+<dt>flags <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The converton flags</dd>
+<dt>encoding <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>The encoding</dd>
+</dl>
+<dl class="docutils">
+<dt>rstring <span class="classifier-delimiter">:</span> <span class="classifier">unicode</span></dt>
+<dd>The converted string</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="smalltools.utils.sbcdbc.str_sbc2dbc">
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">str_sbc2dbc</tt><big>(</big><em>ustring</em>, <em>flags=4369</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#str_sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.str_sbc2dbc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert str in single byte to double byte character by character.
+It is very slow.</p>
+<dl class="docutils">
+<dt>ustring <span class="classifier-delimiter">:</span> <span class="classifier">str or unicode</span></dt>
+<dd>The string to be converted</dd>
+<dt>flags <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>The converton flags</dd>
+<dt>encoding <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>The encoding</dd>
+</dl>
+<dl class="docutils">
+<dt>rstring <span class="classifier-delimiter">:</span> <span class="classifier">unicode</span></dt>
+<dd>The converted string</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-smalltools.utils.settings">
+<span id="smalltools-utils-settings-module"></span><h2>smalltools.utils.settings module<a class="headerlink" href="#module-smalltools.utils.settings" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-smalltools.utils.word2tags">
+<span id="smalltools-utils-word2tags-module"></span><h2>smalltools.utils.word2tags module<a class="headerlink" href="#module-smalltools.utils.word2tags" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="smalltools.utils.word2tags.BB2B3IESstyle">
+<tt class="descclassname">smalltools.utils.word2tags.</tt><tt class="descname">BB2B3IESstyle</tt><big>(</big><em>word</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/word2tags.html#BB2B3IESstyle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.word2tags.BB2B3IESstyle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="smalltools.utils.word2tags.BIESstyle">
+<tt class="descclassname">smalltools.utils.word2tags.</tt><tt class="descname">BIESstyle</tt><big>(</big><em>word</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/word2tags.html#BIESstyle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.word2tags.BIESstyle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="smalltools.utils.word2tags.BIstyle">
+<tt class="descclassname">smalltools.utils.word2tags.</tt><tt class="descname">BIstyle</tt><big>(</big><em>word</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/word2tags.html#BIstyle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.word2tags.BIstyle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-smalltools.utils.wordtypes">
+<span id="smalltools-utils-wordtypes-module"></span><h2>smalltools.utils.wordtypes module<a class="headerlink" href="#module-smalltools.utils.wordtypes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="smalltools.utils.wordtypes.wordtype">
+<tt class="descclassname">smalltools.utils.wordtypes.</tt><tt class="descname">wordtype</tt><big>(</big><em>word</em>, <em>encoding=None</em>, <em>fast=False</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/wordtypes.html#wordtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.wordtypes.wordtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-smalltools.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-smalltools.utils" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">smalltools.utils package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-smalltools.utils.chartypes">smalltools.utils.chartypes module</a></li>
+<li><a class="reference internal" href="#module-smalltools.utils.sbcdbc">smalltools.utils.sbcdbc module</a></li>
+<li><a class="reference internal" href="#module-smalltools.utils.settings">smalltools.utils.settings module</a></li>
+<li><a class="reference internal" href="#module-smalltools.utils.word2tags">smalltools.utils.word2tags module</a></li>
+<li><a class="reference internal" href="#module-smalltools.utils.wordtypes">smalltools.utils.wordtypes module</a></li>
+<li><a class="reference internal" href="#module-smalltools.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="smalltools.segment.html"
+                        title="previous chapter">smalltools.segment package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/smalltools.utils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="smalltools.segment.html" title="smalltools.segment package"
+             >previous</a> |</li>
+        <li><a href="index.html">smalltools  documentation</a> &raquo;</li>
+          <li><a href="smalltools.html" >smalltools package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Author.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

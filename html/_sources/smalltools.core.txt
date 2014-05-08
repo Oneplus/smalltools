@@ -1,0 +1,22 @@
+smalltools.core package
+=======================
+
+Submodules
+----------
+
+smalltools.core.instance module
+-------------------------------
+
+.. automodule:: smalltools.core.instance
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: smalltools.core
+    :members:
+    :undoc-members:
+    :show-inheritance:

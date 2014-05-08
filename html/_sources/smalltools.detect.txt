@@ -1,0 +1,22 @@
+smalltools.detect package
+=========================
+
+Submodules
+----------
+
+smalltools.detect.detect module
+-------------------------------
+
+.. automodule:: smalltools.detect.detect
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: smalltools.detect
+    :members:
+    :undoc-members:
+    :show-inheritance:

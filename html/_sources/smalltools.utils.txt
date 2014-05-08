@@ -1,0 +1,54 @@
+smalltools.utils package
+========================
+
+Submodules
+----------
+
+smalltools.utils.chartypes module
+---------------------------------
+
+.. automodule:: smalltools.utils.chartypes
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+smalltools.utils.sbcdbc module
+------------------------------
+
+.. automodule:: smalltools.utils.sbcdbc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+smalltools.utils.settings module
+--------------------------------
+
+.. automodule:: smalltools.utils.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+smalltools.utils.word2tags module
+---------------------------------
+
+.. automodule:: smalltools.utils.word2tags
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+smalltools.utils.wordtypes module
+---------------------------------
+
+.. automodule:: smalltools.utils.wordtypes
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: smalltools.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:

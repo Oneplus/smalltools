@@ -1,0 +1,22 @@
+smalltools package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    smalltools.core
+    smalltools.detect
+    smalltools.io
+    smalltools.lang
+    smalltools.segment
+    smalltools.utils
+
+Module contents
+---------------
+
+.. automodule:: smalltools
+    :members:
+    :undoc-members:
+    :show-inheritance:

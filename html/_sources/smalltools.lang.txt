@@ -1,0 +1,38 @@
+smalltools.lang package
+=======================
+
+Submodules
+----------
+
+smalltools.lang.Chinese module
+------------------------------
+
+.. automodule:: smalltools.lang.Chinese
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+smalltools.lang.Danish module
+-----------------------------
+
+.. automodule:: smalltools.lang.Danish
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+smalltools.lang.English module
+------------------------------
+
+.. automodule:: smalltools.lang.English
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: smalltools.lang
+    :members:
+    :undoc-members:
+    :show-inheritance:

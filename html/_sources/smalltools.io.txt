@@ -1,0 +1,30 @@
+smalltools.io package
+=====================
+
+Submodules
+----------
+
+smalltools.io.reader module
+---------------------------
+
+.. automodule:: smalltools.io.reader
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+smalltools.io.writer module
+---------------------------
+
+.. automodule:: smalltools.io.writer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: smalltools.io
+    :members:
+    :undoc-members:
+    :show-inheritance:

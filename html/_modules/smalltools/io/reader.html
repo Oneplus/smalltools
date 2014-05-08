@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>smalltools.io.reader &mdash; smalltools  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="smalltools  documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">smalltools  documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for smalltools.io.reader</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">smalltools.core</span> <span class="kn">import</span> <span class="n">Instance</span>
+
+<div class="viewcode-block" id="Reader"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.Reader">[docs]</a><span class="k">class</span> <span class="nc">Reader</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; construct the reader with file handle. &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fp</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fp</span><span class="p">;</span>
+
+    <span class="sd">&quot;&quot;&quot; to be overwrited. &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Reader.get"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.Reader.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="Reader.seek"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.Reader.seek">[docs]</a>    <span class="k">def</span> <span class="nf">seek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">whence</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">whence</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="SegmentReader"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.SegmentReader">[docs]</a><span class="k">class</span> <span class="nc">SegmentReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="SegmentReader.get"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.SegmentReader.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="n">inst</span> <span class="o">=</span> <span class="n">Instance</span><span class="p">()</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">forms</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">raw</span>   <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inst</span><span class="o">.</span><span class="n">forms</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">inst</span>
+</div></div>
+<div class="viewcode-block" id="PostagReader"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.PostagReader">[docs]</a><span class="k">class</span> <span class="nc">PostagReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PostagReader.get"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.PostagReader.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="n">inst</span> <span class="o">=</span> <span class="n">Instance</span><span class="p">()</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">forms</span>   <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">postags</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">raw</span>     <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inst</span><span class="o">.</span><span class="n">forms</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">inst</span>
+</div></div>
+<div class="viewcode-block" id="ConllReader"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.ConllReader">[docs]</a><span class="k">class</span> <span class="nc">ConllReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ConllReader.get"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.ConllReader.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+        <span class="n">inst</span> <span class="o">=</span> <span class="n">Instance</span><span class="p">()</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">forms</span>   <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">postags</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">heads</span>   <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">deprels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">extras</span>  <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">raw</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">forms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">splits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">postags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">splits</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">heads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="nb">int</span><span class="p">(</span><span class="n">splits</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span> <span class="p">)</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">deprels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">splits</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="n">splits</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">!=</span> <span class="s">&quot;_&quot;</span><span class="p">:</span>
+                <span class="n">inst</span><span class="o">.</span><span class="n">extras</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">splits</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="p">)</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">raw</span> <span class="o">+=</span> <span class="n">splits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">inst</span><span class="o">.</span><span class="n">extras</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">inst</span><span class="o">.</span><span class="n">extras</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="n">inst</span>
+</div></div>
+<div class="viewcode-block" id="PlainReader"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.PlainReader">[docs]</a><span class="k">class</span> <span class="nc">PlainReader</span><span class="p">(</span><span class="n">Reader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="PlainReader.get"><a class="viewcode-back" href="../../../smalltools.io.html#smalltools.io.reader.PlainReader.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">inst</span> <span class="o">=</span> <span class="n">Instance</span><span class="p">()</span>
+        <span class="n">inst</span><span class="o">.</span><span class="n">raw</span> <span class="o">=</span> <span class="n">line</span>
+
+        <span class="k">return</span> <span class="n">inst</span>
+</div></div>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">SegmentReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;./data/segment.sample&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">))</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">inst</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">inst</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="k">print</span> <span class="n">inst</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">smalltools  documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Author.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

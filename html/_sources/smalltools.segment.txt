@@ -1,0 +1,22 @@
+smalltools.segment package
+==========================
+
+Submodules
+----------
+
+smalltools.segment.word2char module
+-----------------------------------
+
+.. automodule:: smalltools.segment.word2char
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: smalltools.segment
+    :members:
+    :undoc-members:
+    :show-inheritance:
