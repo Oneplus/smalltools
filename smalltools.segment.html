@@ -66,14 +66,11 @@
 <tt class="descclassname">smalltools.segment.word2char.</tt><tt class="descname">WordToCharacters</tt><big>(</big><em>token</em>, <em>encoding='utf-8'</em><big>)</big><a class="reference internal" href="_modules/smalltools/segment/word2char.html#WordToCharacters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.segment.word2char.WordToCharacters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert word to characters</p>
 <dl class="docutils">
-<dt>token <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
-<dd>The input string token</dd>
-<dt>encoding <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
-<dd>The encoding</dd>
-</dl>
-<dl class="docutils">
-<dt>ret <span class="classifier-delimiter">:</span> <span class="classifier">list(str)</span></dt>
-<dd>The list of characters</dd>
+<dt>Args:</dt>
+<dd>token (str): The input string token
+encoding (str): The encoding</dd>
+<dt>Returns:</dt>
+<dd>list(str): The list of characters</dd>
 </dl>
 </dd></dl>
 
@@ -83,18 +80,32 @@
 <dd><p>Convert word to characters, if certain part of the token matches
 by the regex, this part is treated as a single word.</p>
 <dl class="docutils">
-<dt>token <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
-<dd>The input string token</dd>
-<dt>MATCHES <span class="classifier-delimiter">:</span> <span class="classifier">list(re)</span></dt>
-<dd>The predefined regex rules</dd>
-<dt>encoding <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
-<dd>The encoding</dd>
-</dl>
-<dl class="docutils">
-<dt>ret <span class="classifier-delimiter">:</span> <span class="classifier">list(str)</span></dt>
-<dd>The list of characters</dd>
+<dt>Args:</dt>
+<dd>token (str): The input string token
+MATCHES (list(re)): The predefined regex rules
+encoding (str): The encoding</dd>
+<dt>Returns:</dt>
+<dd>ret (list(str)): The list of characters</dd>
 </dl>
 </dd></dl>
+
+</div>
+<div class="section" id="module-smalltools.segment.word2tags">
+<span id="smalltools-segment-word2tags-module"></span><h2>smalltools.segment.word2tags module<a class="headerlink" href="#module-smalltools.segment.word2tags" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="smalltools.segment.word2tags.BB2B3IESstyle">
+<tt class="descclassname">smalltools.segment.word2tags.</tt><tt class="descname">BB2B3IESstyle</tt><big>(</big><em>word</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/segment/word2tags.html#BB2B3IESstyle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.segment.word2tags.BB2B3IESstyle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="smalltools.segment.word2tags.BIESstyle">
+<tt class="descclassname">smalltools.segment.word2tags.</tt><tt class="descname">BIESstyle</tt><big>(</big><em>word</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/segment/word2tags.html#BIESstyle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.segment.word2tags.BIESstyle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="smalltools.segment.word2tags.BIstyle">
+<tt class="descclassname">smalltools.segment.word2tags.</tt><tt class="descname">BIstyle</tt><big>(</big><em>word</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/segment/word2tags.html#BIstyle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.segment.word2tags.BIstyle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-smalltools.segment">
@@ -113,6 +124,7 @@ by the regex, this part is treated as a single word.</p>
 <li><a class="reference internal" href="#">smalltools.segment package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-smalltools.segment.word2char">smalltools.segment.word2char module</a></li>
+<li><a class="reference internal" href="#module-smalltools.segment.word2tags">smalltools.segment.word2tags module</a></li>
 <li><a class="reference internal" href="#module-smalltools.segment">Module contents</a></li>
 </ul>
 </li>

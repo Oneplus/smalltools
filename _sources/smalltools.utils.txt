@@ -28,14 +28,6 @@ smalltools.utils.settings module
     :undoc-members:
     :show-inheritance:
 
-smalltools.utils.word2tags module
----------------------------------
-
-.. automodule:: smalltools.utils.word2tags
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 smalltools.utils.wordtypes module
 ---------------------------------
 

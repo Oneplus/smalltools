@@ -59,19 +59,13 @@
 <span class="sd">    Convert single bit character to double bit character.</span>
 <span class="sd">    Return double bit character in unicode</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    ch : str or unicode</span>
-<span class="sd">        The character</span>
-<span class="sd">    flags : int</span>
-<span class="sd">        The converton flags</span>
-<span class="sd">    encoding : str</span>
-<span class="sd">        The encoding</span>
+<span class="sd">    Args:</span>
+<span class="sd">        ch (str or unicode): The character</span>
+<span class="sd">        flags (int): The converton flags</span>
+<span class="sd">        encoding (str): The encoding</span>
 
-<span class="sd">    Return</span>
-<span class="sd">    ------</span>
-<span class="sd">    ch : unicode</span>
-<span class="sd">        the converted character</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        unicode: The converted character</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
@@ -111,19 +105,13 @@
 <span class="sd">    Convert double bit character to single bit character.</span>
 <span class="sd">    Return single bit character in unicode.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    ch : str or unicode</span>
-<span class="sd">        The character</span>
-<span class="sd">    flags : int</span>
-<span class="sd">        The convertion flags</span>
-<span class="sd">    encoding : str</span>
-<span class="sd">        The encoding</span>
+<span class="sd">    Args:</span>
+<span class="sd">        ch (str or unicode): The character</span>
+<span class="sd">        flags (int): The converton flags</span>
+<span class="sd">        encoding (str): The encoding</span>
 
-<span class="sd">    Return</span>
-<span class="sd">    ------</span>
-<span class="sd">    ch : unicode</span>
-<span class="sd">        the converted character</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        unicode: The converted character </span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
@@ -174,19 +162,13 @@
 <span class="sd">    Convert str in single byte to double byte character by character.</span>
 <span class="sd">    It is very slow.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    ustring : str or unicode</span>
-<span class="sd">        The string to be converted</span>
-<span class="sd">    flags : int</span>
-<span class="sd">        The converton flags</span>
-<span class="sd">    encoding : str</span>
-<span class="sd">        The encoding</span>
+<span class="sd">    Args:</span>
+<span class="sd">        ustring (str or unicode): The string</span>
+<span class="sd">        flags (int): The converton flags</span>
+<span class="sd">        encoding (str): The encoding</span>
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    rstring : unicode</span>
-<span class="sd">        The converted string</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        unicode: The converted string </span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">ustring</span> <span class="o">=</span> <span class="n">ustring</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
@@ -199,20 +181,13 @@
 <span class="sd">    Convert str in single byte to double byte character by character</span>
 <span class="sd">    It is very slow.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    ustring : str or unicode</span>
-<span class="sd">        The string to be converted</span>
-<span class="sd">    flags : int</span>
-<span class="sd">        The converton flags</span>
-<span class="sd">    encoding : str</span>
-<span class="sd">        The encoding</span>
+<span class="sd">    Args:</span>
+<span class="sd">        ustring (str or unicode): The string</span>
+<span class="sd">        flags (int): The converton flags</span>
+<span class="sd">        encoding (str): The encoding</span>
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    rstring : unicode</span>
-<span class="sd">        The converted string</span>
-
+<span class="sd">    Returns:</span>
+<span class="sd">        unicode: The converted string </span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">ustring</span> <span class="o">=</span> <span class="n">ustring</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>

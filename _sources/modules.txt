@@ -1,0 +1,7 @@
+smalltools
+==========
+
+.. toctree::
+   :maxdepth: 4
+
+   smalltools

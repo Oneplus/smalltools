@@ -12,6 +12,14 @@ smalltools.segment.word2char module
     :undoc-members:
     :show-inheritance:
 
+smalltools.segment.word2tags module
+-----------------------------------
+
+.. automodule:: smalltools.segment.word2tags
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------

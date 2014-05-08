@@ -54,17 +54,12 @@
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Convert word to characters</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    token : str</span>
-<span class="sd">        The input string token</span>
-<span class="sd">    encoding : str</span>
-<span class="sd">        The encoding</span>
+<span class="sd">    Args:</span>
+<span class="sd">        token (str): The input string token</span>
+<span class="sd">        encoding (str): The encoding</span>
 
-<span class="sd">    Return</span>
-<span class="sd">    ------</span>
-<span class="sd">    ret : list(str)</span>
-<span class="sd">        The list of characters</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        list(str): The list of characters</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">):</span>
@@ -78,19 +73,13 @@
 <span class="sd">    Convert word to characters, if certain part of the token matches</span>
 <span class="sd">    by the regex, this part is treated as a single word.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    token : str</span>
-<span class="sd">        The input string token</span>
-<span class="sd">    MATCHES : list(re)</span>
-<span class="sd">        The predefined regex rules</span>
-<span class="sd">    encoding : str</span>
-<span class="sd">        The encoding</span>
+<span class="sd">    Args:</span>
+<span class="sd">        token (str): The input string token</span>
+<span class="sd">        MATCHES (list(re)): The predefined regex rules</span>
+<span class="sd">        encoding (str): The encoding</span>
 
-<span class="sd">    Return</span>
-<span class="sd">    ------</span>
-<span class="sd">    ret : list(str)</span>
-<span class="sd">        The list of characters</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        ret (list(str)): The list of characters</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
