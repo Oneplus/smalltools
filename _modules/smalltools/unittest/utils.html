@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>smalltools.unittest.utils &mdash; smalltools  documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="smalltools  documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">smalltools  documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for smalltools.unittest.utils</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf8 -*-</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">unittest2</span> <span class="kn">import</span> <span class="n">TestCase</span><span class="p">,</span> <span class="n">main</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span><span class="p">,</span> <span class="n">main</span>
+
+<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">chartype</span>
+<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">wordtype</span>
+<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">sbc2dbc</span><span class="p">,</span> <span class="n">dbc2sbc</span><span class="p">,</span>\
+        <span class="n">fast_sbc2dbc</span><span class="p">,</span> <span class="n">fast_dbc2sbc</span><span class="p">,</span> \
+        <span class="n">fast_str_dbc2sbc</span>
+
+<span class="kn">from</span> <span class="nn">..utils.chartypes</span> <span class="kn">import</span> \
+        <span class="n">CHAR_LETTER</span><span class="p">,</span> <span class="n">CHAR_LETTER_DBC</span><span class="p">,</span> <span class="n">CHAR_LETTER_DBC_UPPERCASE</span><span class="p">,</span> \
+        <span class="n">CHAR_DIGIT</span><span class="p">,</span> <span class="n">CHAR_DIGIT_SBC</span> 
+
+<span class="kn">from</span> <span class="nn">..utils.wordtypes</span> <span class="kn">import</span> <span class="n">URL</span><span class="p">,</span> <span class="n">ENG</span><span class="p">,</span> <span class="n">DIG</span><span class="p">,</span> <span class="n">NONE</span>
+
+<div class="viewcode-block" id="UtilsTest"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest">[docs]</a><span class="k">class</span> <span class="nc">UtilsTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="UtilsTest.setUp"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="UtilsTest.tearDown"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest.tearDown">[docs]</a>    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="UtilsTest.testSbc2Dbc"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest.testSbc2Dbc">[docs]</a>    <span class="k">def</span> <span class="nf">testSbc2Dbc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">sbc2dbc</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">),</span> <span class="s">u&quot;ａ&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">sbc2dbc</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">),</span> <span class="s">u&quot;Ａ&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">sbc2dbc</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">),</span> <span class="s">u&quot;２&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">sbc2dbc</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">),</span> <span class="s">u&quot;！&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="UtilsTest.testDbc2Sbc"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest.testDbc2Sbc">[docs]</a>    <span class="k">def</span> <span class="nf">testDbc2Sbc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="s">u&quot;ａ&quot;</span><span class="p">),</span> <span class="s">&quot;a&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="s">&quot;ａ&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">),</span> <span class="s">&quot;a&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="s">u&quot;１&quot;</span><span class="p">),</span> <span class="s">&quot;1&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="s">&quot;１&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">),</span> <span class="s">&quot;1&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="s">u&quot;一&quot;</span><span class="p">),</span> <span class="s">&quot;1&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="s">u&quot;？&quot;</span><span class="p">),</span> <span class="s">&quot;?&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="s">&quot;？&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">),</span> <span class="s">&quot;?&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="s">u&quot;Ａ&quot;</span><span class="p">),</span> <span class="s">&quot;A&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="s">&quot;Ａ&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">),</span> <span class="s">&quot;A&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="UtilsTest.testFastSbc2Dbc"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest.testFastSbc2Dbc">[docs]</a>    <span class="k">def</span> <span class="nf">testFastSbc2Dbc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_sbc2dbc</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">),</span> <span class="s">u&quot;ａ&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_sbc2dbc</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">),</span> <span class="s">u&quot;Ａ&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_sbc2dbc</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">),</span> <span class="s">u&quot;２&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_sbc2dbc</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">),</span> <span class="s">u&quot;！&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="UtilsTest.testFastDbc2Sbc"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest.testFastDbc2Sbc">[docs]</a>    <span class="k">def</span> <span class="nf">testFastDbc2Sbc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="s">u&quot;ａ&quot;</span><span class="p">),</span> <span class="s">&quot;a&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="s">&quot;ａ&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">),</span> <span class="s">&quot;a&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="s">u&quot;１&quot;</span><span class="p">),</span> <span class="s">&quot;1&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="s">&quot;１&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">),</span> <span class="s">&quot;1&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="s">u&quot;？&quot;</span><span class="p">),</span> <span class="s">&quot;?&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="s">&quot;？&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">),</span> <span class="s">&quot;?&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="s">u&quot;Ａ&quot;</span><span class="p">),</span> <span class="s">&quot;A&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="s">&quot;Ａ&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">),</span> <span class="s">&quot;A&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="UtilsTest.testCharType"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest.testCharType">[docs]</a>    <span class="k">def</span> <span class="nf">testCharType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">chartype</span><span class="p">(</span><span class="s">u&quot;Ａ&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">CHAR_LETTER</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">chartype</span><span class="p">(</span><span class="s">u&quot;Ａ&quot;</span><span class="p">,</span> <span class="n">lvl</span><span class="o">=</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">CHAR_LETTER_DBC</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">chartype</span><span class="p">(</span><span class="s">u&quot;Ａ&quot;</span><span class="p">,</span> <span class="n">lvl</span><span class="o">=</span><span class="mi">3</span><span class="p">)[</span><span class="mi">2</span><span class="p">],</span> <span class="n">CHAR_LETTER_DBC_UPPERCASE</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">chartype</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="n">lvl</span><span class="o">=</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">CHAR_DIGIT_SBC</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="UtilsTest.testWordType"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest.testWordType">[docs]</a>    <span class="k">def</span> <span class="nf">testWordType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">wordtype</span><span class="p">(</span><span class="s">&quot;John&quot;</span><span class="p">),</span> <span class="n">ENG</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">wordtype</span><span class="p">(</span><span class="s">u&quot;ｄｏｎ＇ｔ&quot;</span><span class="p">),</span> <span class="n">ENG</span><span class="p">)</span>
+        <span class="c">#self.assertEquals(wordtype(&quot;http://oneplus.info&quot;), URL)</span>
+        <span class="c">#self.assertEquals(wordtype(&quot;1942&quot;), DIG)</span>
+        <span class="c">#self.assertEquals(wordtype(u&quot;１９４２&quot;), DIG)</span>
+        <span class="c">#self.assertEquals(wordtype(u&quot;十一&quot;), DIG)</span>
+</div>
+<div class="viewcode-block" id="UtilsTest.testFastStrDbc2Sbc"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.utils.UtilsTest.testFastStrDbc2Sbc">[docs]</a>    <span class="k">def</span> <span class="nf">testFastStrDbc2Sbc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">fast_str_dbc2sbc</span><span class="p">(</span><span class="s">u&quot;Ａ１ｂ&quot;</span><span class="p">),</span> <span class="s">&quot;A1b&quot;</span><span class="p">)</span>
+
+</div></div>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">smalltools  documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Liu Yijia.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+smalltools.unittest package
+===========================
+
+Submodules
+----------
+
+smalltools.unittest.regex module
+--------------------------------
+
+.. automodule:: smalltools.unittest.regex
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+smalltools.unittest.segment module
+----------------------------------
+
+.. automodule:: smalltools.unittest.segment
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+smalltools.unittest.utils module
+--------------------------------
+
+.. automodule:: smalltools.unittest.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: smalltools.unittest
+    :members:
+    :undoc-members:
+    :show-inheritance:

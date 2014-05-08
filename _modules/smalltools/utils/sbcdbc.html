@@ -111,7 +111,7 @@
 <span class="sd">        encoding (str): The encoding</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        unicode: The converted character </span>
+<span class="sd">        unicode: The converted character</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
@@ -168,7 +168,7 @@
 <span class="sd">        encoding (str): The encoding</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        unicode: The converted string </span>
+<span class="sd">        unicode: The converted string</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">ustring</span> <span class="o">=</span> <span class="n">ustring</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
@@ -187,7 +187,7 @@
 <span class="sd">        encoding (str): The encoding</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        unicode: The converted string </span>
+<span class="sd">        unicode: The converted string</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">ustring</span> <span class="o">=</span> <span class="n">ustring</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
@@ -196,7 +196,7 @@
 
 </div>
 <div class="viewcode-block" id="fast_dbc2sbc"><a class="viewcode-back" href="../../../smalltools.utils.html#smalltools.utils.sbcdbc.fast_dbc2sbc">[docs]</a><span class="k">def</span> <span class="nf">fast_dbc2sbc</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A faster implement of convertion from double byte character</span>
 <span class="sd">    to single byte character</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -219,8 +219,8 @@
 
 </div>
 <div class="viewcode-block" id="fast_sbc2dbc"><a class="viewcode-back" href="../../../smalltools.utils.html#smalltools.utils.sbcdbc.fast_sbc2dbc">[docs]</a><span class="k">def</span> <span class="nf">fast_sbc2dbc</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">    A faster implement of convertion from single byte character </span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A faster implement of convertion from single byte character</span>
 <span class="sd">    to double byte character</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
@@ -236,14 +236,14 @@
         <span class="k">if</span> <span class="n">inside_code</span><span class="o">==</span><span class="mh">0x0020</span><span class="p">:</span>
             <span class="n">inside_code</span><span class="o">=</span><span class="mh">0x3000</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">inside_code</span><span class="o">+=</span><span class="mh">0xfee0</span> 
+            <span class="n">inside_code</span><span class="o">+=</span><span class="mh">0xfee0</span>
         <span class="k">return</span> <span class="nb">unichr</span><span class="p">(</span><span class="n">inside_code</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">ch</span>
 
 </div>
 <div class="viewcode-block" id="fast_str_dbc2sbc"><a class="viewcode-back" href="../../../smalltools.utils.html#smalltools.utils.sbcdbc.fast_str_dbc2sbc">[docs]</a><span class="k">def</span> <span class="nf">fast_str_dbc2sbc</span><span class="p">(</span><span class="n">ustring</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    convert unicode string in double byte character</span>
 <span class="sd">    to single byte character</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -267,7 +267,7 @@
 
 </div>
 <div class="viewcode-block" id="fast_str_sbc2dbc"><a class="viewcode-back" href="../../../smalltools.utils.html#smalltools.utils.sbcdbc.fast_str_sbc2dbc">[docs]</a><span class="k">def</span> <span class="nf">fast_str_sbc2dbc</span><span class="p">(</span><span class="n">ustring</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; </span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    convert unicode string in single byte character</span>
 <span class="sd">    to double byte character</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -286,7 +286,7 @@
             <span class="k">if</span> <span class="n">inside_code</span><span class="o">==</span><span class="mh">0x0020</span><span class="p">:</span>
                 <span class="n">inside_code</span><span class="o">=</span><span class="mh">0x3000</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">inside_code</span><span class="o">+=</span><span class="mh">0xfee0</span> 
+                <span class="n">inside_code</span><span class="o">+=</span><span class="mh">0xfee0</span>
             <span class="n">rstring</span> <span class="o">+=</span> <span class="nb">unichr</span><span class="p">(</span><span class="n">inside_code</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">rstring</span>
@@ -328,7 +328,7 @@
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Author.
+        &copy; Copyright 2014, Liu Yijia.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>

@@ -1,0 +1,10 @@
+smalltools.regex package
+========================
+
+Module contents
+---------------
+
+.. automodule:: smalltools.regex
+    :members:
+    :undoc-members:
+    :show-inheritance:

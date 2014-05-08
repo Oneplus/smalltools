@@ -66,6 +66,14 @@
 <div class="viewcode-block" id="chartype"><a class="viewcode-back" href="../../../smalltools.utils.html#smalltools.utils.chartypes.chartype">[docs]</a><span class="k">def</span> <span class="nf">chartype</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">lvl</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Get type of character</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ch (str or unicode): The character</span>
+<span class="sd">        lvl (int): The detect level</span>
+<span class="sd">        encoding (str): The encoding</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        list(int): The chartype in different level</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
@@ -183,7 +191,7 @@
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Author.
+        &copy; Copyright 2014, Liu Yijia.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
