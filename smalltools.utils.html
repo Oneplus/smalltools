@@ -61,14 +61,26 @@
 <dt id="smalltools.utils.chartypes.chartype">
 <tt class="descclassname">smalltools.utils.chartypes.</tt><tt class="descname">chartype</tt><big>(</big><em>ch</em>, <em>lvl=1</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/chartypes.html#chartype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.chartypes.chartype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get type of character</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ch (str or unicode): The character
-lvl (int): The detect level
-encoding (str): The encoding</dd>
-<dt>Return:</dt>
-<dd>list(int): The chartype in different level</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ch</strong> (<em>str or unicode</em>) &#8211; The character</li>
+<li><strong>lvl</strong> (<em>int</em>) &#8211; The detect level</li>
+<li><strong>encoding</strong> (<em>str</em>) &#8211; The encoding</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>list</strong> &#8211;
+The chartype in different level</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -79,14 +91,25 @@ encoding (str): The encoding</dd>
 <tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">dbc2sbc</tt><big>(</big><em>ch</em>, <em>flags=4369</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.dbc2sbc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert double bit character to single bit character.
 Return single bit character in unicode.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ch (str or unicode): The character
-flags (int): The converton flags
-encoding (str): The encoding</dd>
-<dt>Returns:</dt>
-<dd>unicode: The converted character</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ch</strong> (<em>str or unicode</em>) &#8211; The character</li>
+<li><strong>flags</strong> (<em>int</em>) &#8211; The converton flags</li>
+<li><strong>encoding</strong> (<em>str</em>) &#8211; The encoding</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The converted character</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -122,14 +145,25 @@ to double byte character</p>
 <tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">sbc2dbc</tt><big>(</big><em>ch</em>, <em>flags=4369</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.sbc2dbc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert single bit character to double bit character.
 Return double bit character in unicode</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ch (str or unicode): The character
-flags (int): The converton flags
-encoding (str): The encoding</dd>
-<dt>Returns:</dt>
-<dd>unicode: The converted character</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ch</strong> (<em>str or unicode</em>) &#8211; The character</li>
+<li><strong>flags</strong> (<em>int</em>) &#8211; The converton flags</li>
+<li><strong>encoding</strong> (<em>str</em>) &#8211; The encoding</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The converted character</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -137,14 +171,25 @@ encoding (str): The encoding</dd>
 <tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">str_dbc2sbc</tt><big>(</big><em>ustring</em>, <em>flags=4369</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#str_dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.str_dbc2sbc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert str in single byte to double byte character by character
 It is very slow.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ustring (str or unicode): The string
-flags (int): The converton flags
-encoding (str): The encoding</dd>
-<dt>Returns:</dt>
-<dd>unicode: The converted string</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ustring</strong> (<em>str or unicode</em>) &#8211; The string</li>
+<li><strong>flags</strong> (<em>int</em>) &#8211; The converton flags</li>
+<li><strong>encoding</strong> (<em>str</em>) &#8211; The encoding</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The converted string</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -152,14 +197,25 @@ encoding (str): The encoding</dd>
 <tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">str_sbc2dbc</tt><big>(</big><em>ustring</em>, <em>flags=4369</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#str_sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.str_sbc2dbc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert str in single byte to double byte character by character.
 It is very slow.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ustring (str or unicode): The string
-flags (int): The converton flags
-encoding (str): The encoding</dd>
-<dt>Returns:</dt>
-<dd>unicode: The converted string</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ustring</strong> (<em>str or unicode</em>) &#8211; The string</li>
+<li><strong>flags</strong> (<em>int</em>) &#8211; The converton flags</li>
+<li><strong>encoding</strong> (<em>str</em>) &#8211; The encoding</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The converted string</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">unicode</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
