@@ -1,13 +1,13 @@
 from distutils.core import setup
 
 setup(
-        name='corpusproc',
-        version='0.1-dev',
-        packages=['corpusproc',
-            'corpusproc.utils',
-            'corpusproc.core',
-            'corpusproc.detect',
-            'corpusproc.io',],
+        name='smalltools',
+        version='0.0.2-dev',
+        packages=['smalltools',
+            'smalltools.utils',
+            'smalltools.core',
+            'smalltools.detect',
+            'smalltools.io',],
         license='',
         long_description=open('README.md').read(),
 )

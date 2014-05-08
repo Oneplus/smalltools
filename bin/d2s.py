@@ -12,7 +12,7 @@ except ImportError:
     bin_dir  = os.path.split(bin_path)[0]
     root_dir = os.path.join(bin_dir, "..")
     sys.path.append(root_dir)
-    from smalltools.utils import fast_str_dbc2sbc
+    from smalltools.utils import str_dbc2sbc, fast_str_dbc2sbc
     from smalltools.utils import sbcdbc
 
 
@@ -25,9 +25,10 @@ if __name__=="__main__":
             help="use to specify convert digit")
     optparser.add_option("-p", dest="conv_punc", default=False, action="store_true",
             help="use to specify convert punctation")
-    optparser.add_option("-f", dest="conv_letter", default=False, action="store_true",
+    optparser.add_option("-l", dest="conv_letter", default=False, action="store_true",
             help="use to specify convert english letter")
- 
+    optparser.add_option("-x", dest="fast", default=False, action="store_true",
+            help="use to specify fast handle")
     opts, args = optparser.parse_args()
     try:
         fp=open(opts.filename, "r")
@@ -48,4 +49,4 @@ if __name__=="__main__":
             print fast_str_dbc2sbc(line.strip(), opts.encoding).encode(opts.encoding)
     else:
         for line in fp:
-            print str_sbc2dbc(line.strip(), flags, opts.encoding).encode(opts.encoding)
+            print str_dbc2sbc(line.strip(), flags, opts.encoding).encode(opts.encoding)

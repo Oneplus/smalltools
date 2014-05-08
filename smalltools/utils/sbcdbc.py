@@ -1,8 +1,9 @@
 from settings import sbc, dbc
 
-CONV_LETTER = 0x0001
-CONV_DIGIT  = 0x0002
-CONV_PUNC   = 0x0004
+CONV_LETTER         = 0x0001
+CONV_DIGIT          = 0x0002
+CONV_CHINESE_DIGIT  = 0x0004
+CONV_PUNC           = 0x0008
 
 def sbc2dbc(ch, flags=0x1111, encoding=None):
     '''
@@ -26,7 +27,7 @@ def sbc2dbc(ch, flags=0x1111, encoding=None):
     if encoding is not None:
         ch = ch.decode(encoding)
 
-    if flags | CONV_LETTER:
+    if flags & CONV_LETTER:
         try:
             idx = sbc["uppercase"].index(ch)
             return dbc["uppercase"][idx]
@@ -39,14 +40,14 @@ def sbc2dbc(ch, flags=0x1111, encoding=None):
         except ValueError:
             pass
 
-    if flags | CONV_PUNC:
+    if flags & CONV_PUNC:
         try:
             idx = sbc["punc"].index(ch)
             return dbc["punc"][idx]
         except:
             pass
 
-    if flags | CONV_DIGIT:
+    if flags & CONV_DIGIT:
         try:
             idx = sbc["digit"].index(ch)
             return dbc["digit"][idx]
@@ -78,14 +79,24 @@ def dbc2sbc(ch, flags=0x1111, encoding=None):
     if encoding is not None:
         ch = ch.decode(encoding)
 
-    if flags | CONV_DIGIT:
+    if flags & CONV_DIGIT and flags & CONV_CHINESE_DIGIT:
         try:
-            idx = dbc["digit"].index(ch)
-            return sbc["digit"][idx % 10]
+            idx = dbc["digit"].index(ch) % 10
+            return sbc["digit"][idx]
         except ValueError:
             pass
 
-    if flags | CONV_LETTER:
+
+    if flags & CONV_DIGIT:
+        try:
+            idx = dbc["digit"].index(ch)
+            return sbc["digit"][idx]
+        except ValueError:
+            pass
+        except IndexError:
+            pass
+
+    if flags & CONV_LETTER:
         try:
             idx = dbc["uppercase"].index(ch)
             return sbc["uppercase"][idx]
@@ -98,7 +109,7 @@ def dbc2sbc(ch, flags=0x1111, encoding=None):
         except ValueError:
             pass
 
-    if flag | CONV_PUNC:
+    if flags & CONV_PUNC:
         try:
             idx = dbc["punc"].index(ch)
             return sbc["punc"][idx]
