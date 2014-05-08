@@ -62,23 +62,34 @@
         <span class="n">CHAR_PUNC_DBC_NORMAL</span><span class="p">,</span> <span class="n">CHAR_PUNC_DBC_CHINESE</span><span class="p">,</span> <span class="n">CHAR_PUNC_DBC_EXT</span><span class="p">,</span> \
         <span class="n">CHAR_OTHER</span>
 
+<span class="n">CHK_LETTER</span> <span class="o">=</span> <span class="mh">0x0001</span>
+<span class="n">CHK_DIGIT</span>  <span class="o">=</span> <span class="mh">0x0002</span>
+<span class="n">CHK_PUNC</span>   <span class="o">=</span> <span class="mh">0x0004</span>
 
-<div class="viewcode-block" id="chartype"><a class="viewcode-back" href="../../../smalltools.utils.html#smalltools.utils.chartypes.chartype">[docs]</a><span class="k">def</span> <span class="nf">chartype</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">lvl</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="chartype"><a class="viewcode-back" href="../../../smalltools.utils.html#smalltools.utils.chartypes.chartype">[docs]</a><span class="k">def</span> <span class="nf">chartype</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mh">0xffff</span><span class="p">,</span> <span class="n">lvl</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Get type of character</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        ch (str or unicode): The character</span>
-<span class="sd">        lvl (int): The detect level</span>
-<span class="sd">        encoding (str): The encoding</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ch : str or unicode</span>
+<span class="sd">        The character</span>
+<span class="sd">    flags: int</span>
+<span class="sd">        The check flags. By default, all the three types are checked.</span>
+<span class="sd">    lvl : int</span>
+<span class="sd">        The detect level</span>
+<span class="sd">    encoding : str</span>
+<span class="sd">        The encoding</span>
 
-<span class="sd">    Return:</span>
-<span class="sd">        list(int): The chartype in different level</span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    chartype : list(int</span>
+<span class="sd">        The chartype in different level</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;uppercase&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_LETTER</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;uppercase&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_LETTER</span><span class="p">,]</span>
         <span class="k">elif</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -86,7 +97,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_LETTER</span><span class="p">,</span> <span class="n">CHAR_LETTER_DBC</span><span class="p">,</span> <span class="n">CHAR_LETTER_DBC_UPPERCASE</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;lowercase&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_LETTER</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;lowercase&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_LETTER</span><span class="p">,]</span>
         <span class="k">elif</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -95,7 +106,7 @@
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_LETTER</span><span class="p">,</span> <span class="n">CHAR_LETTER_DBC</span><span class="p">,</span> <span class="n">CHAR_LETTER_DBC_LOWERCASE</span><span class="p">]</span>
 
     <span class="c"># @NOTE: This part should be optimized</span>
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">sbc_lookup</span><span class="p">[</span><span class="s">&quot;uppercase&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_LETTER</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">sbc_lookup</span><span class="p">[</span><span class="s">&quot;uppercase&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_LETTER</span><span class="p">,]</span>
         <span class="k">elif</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -103,7 +114,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_LETTER</span><span class="p">,</span> <span class="n">CHAR_LETTER_SBC</span><span class="p">,</span> <span class="n">CHAR_LETTER_SBC_UPPERCASE</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">sbc_lookup</span><span class="p">[</span><span class="s">&quot;lowercase&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_LETTER</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">sbc_lookup</span><span class="p">[</span><span class="s">&quot;lowercase&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_LETTER</span><span class="p">,]</span>
         <span class="k">elif</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -111,7 +122,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_LETTER</span><span class="p">,</span> <span class="n">CHAR_LETTER_SBC</span><span class="p">,</span> <span class="n">CHAR_LETTER_SBC_LOWERCASE</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;digit&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_DIGIT</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;digit&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_DIGIT</span><span class="p">,]</span>
         <span class="k">elif</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -125,31 +136,31 @@
             <span class="k">elif</span> <span class="n">idx</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_DIGIT</span><span class="p">,</span> <span class="n">CHAR_DIGIT_DBC</span><span class="p">,</span> <span class="n">CHAR_DIGIT_DBC_CL3</span><span class="p">,]</span>
 
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">sbc_lookup</span><span class="p">[</span><span class="s">&quot;digit&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_DIGIT</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">sbc_lookup</span><span class="p">[</span><span class="s">&quot;digit&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_DIGIT</span><span class="p">,]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_DIGIT</span><span class="p">,</span> <span class="n">CHAR_DIGIT_SBC</span><span class="p">,]</span>
 
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;punc&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_PUNC</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;punc&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_PUNC</span><span class="p">,]</span>
         <span class="k">elif</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_PUNC</span><span class="p">,</span> <span class="n">CHAR_PUNC_NORMAL</span><span class="p">,]</span>
 
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;chinese-punc&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_PUNC</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;chinese-punc&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_PUNC</span><span class="p">,]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_PUNC</span><span class="p">,</span> <span class="n">CHAR_PUNC_CHINESE</span><span class="p">,]</span>
 
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;punc-ext&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_PUNC</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">dbc_lookup</span><span class="p">[</span><span class="s">&quot;punc-ext&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">lvl</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_PUNC</span><span class="p">,]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_PUNC</span><span class="p">,</span> <span class="n">CHAR_PUNC_EXT</span><span class="p">,]</span>
 
-    <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">sbc_lookup</span><span class="p">[</span><span class="s">&quot;punc&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">CHK_PUNC</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">sbc_lookup</span><span class="p">[</span><span class="s">&quot;punc&quot;</span><span class="p">]:</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_PUNC</span><span class="p">,]</span>
 
     <span class="k">return</span> <span class="p">[</span><span class="n">CHAR_OTHER</span><span class="p">,]</span>

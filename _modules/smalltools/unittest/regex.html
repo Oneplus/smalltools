@@ -55,7 +55,8 @@
     <span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span><span class="p">,</span> <span class="n">main</span>
 
 <span class="kn">from</span> <span class="nn">..regex</span> <span class="kn">import</span> <span class="n">reFloatNumber</span><span class="p">,</span> \
-                    <span class="n">reScientificFloatNumber</span>
+                    <span class="n">reScientificFloatNumber</span><span class="p">,</span> \
+                    <span class="n">reURL</span>
 
 <div class="viewcode-block" id="UtilsTest"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.regex.UtilsTest">[docs]</a><span class="k">class</span> <span class="nc">UtilsTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
 
@@ -73,6 +74,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">reScientificFloatNumber</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">&#39;1e10&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">reScientificFloatNumber</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">&#39;1.1e4&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">reScientificFloatNumber</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">&#39;10E4&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="UtilsTest.testURLRegex"><a class="viewcode-back" href="../../../smalltools.unittest.html#smalltools.unittest.regex.UtilsTest.testURLRegex">[docs]</a>    <span class="k">def</span> <span class="nf">testURLRegex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">reURL</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">&quot;www.google.com&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">reURL</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">&quot;http://www.google.com&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">reURL</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">&quot;https://www.google.com/&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">reURL</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">&quot;ftp://202.118.250.16/download?type=file&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">)</span>
 </div></div>
 <span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>

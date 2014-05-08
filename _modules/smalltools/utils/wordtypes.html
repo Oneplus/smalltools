@@ -52,10 +52,10 @@
 
 <span class="kn">from</span> <span class="nn">sbcdbc</span> <span class="kn">import</span> <span class="n">dbc2sbc</span><span class="p">,</span> <span class="n">fast_dbc2sbc</span>
 
-<span class="n">URL</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">ENG</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">DIG</span><span class="o">=</span><span class="mi">2</span>
-<span class="n">NONE</span><span class="o">=-</span><span class="mi">1</span>
+<span class="n">URL</span><span class="o">=</span><span class="mh">0x0001</span>
+<span class="n">ENG</span><span class="o">=</span><span class="mh">0x0002</span>
+<span class="n">DIG</span><span class="o">=</span><span class="mh">0x0004</span>
+<span class="n">NONE</span><span class="o">=</span><span class="mh">0x0000</span>
 
 <span class="n">_url_regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&quot;(https|ftp|file)://&quot;</span>
         <span class="s">&quot;[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]*&quot;</span>
@@ -86,22 +86,47 @@
         <span class="k">return</span> <span class="bp">True</span>
     <span class="k">return</span> <span class="bp">False</span>
 
-<div class="viewcode-block" id="wordtype"><a class="viewcode-back" href="../../../smalltools.utils.html#smalltools.utils.wordtypes.wordtype">[docs]</a><span class="k">def</span> <span class="nf">wordtype</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fast</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+
+<span class="n">CHK_URL</span> <span class="o">=</span> <span class="mh">0x0001</span>
+<span class="n">CHK_ENGLISH</span> <span class="o">=</span> <span class="mh">0x0002</span>
+<span class="n">CHK_NUMERICAL</span> <span class="o">=</span> <span class="mh">0x0004</span>
+
+<div class="viewcode-block" id="wordtype"><a class="viewcode-back" href="../../../smalltools.utils.html#smalltools.utils.wordtypes.wordtype">[docs]</a><span class="k">def</span> <span class="nf">wordtype</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mh">0xffff</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">d2s</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="n">fast</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Detect word&#39;s type</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    token : str or unicode</span>
+<span class="sd">        The input string token</span>
+<span class="sd">    flags : int</span>
+<span class="sd">        The actived check</span>
+<span class="sd">    d2s : bool</span>
+<span class="sd">        Specify to conduct double byte to single byte conversion</span>
+<span class="sd">    fast : bool</span>
+<span class="sd">        Specify to use fast ``dbc2sbc``</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    wordtype : int</span>
+<span class="sd">        The type of word</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">fast</span><span class="p">:</span>
-        <span class="n">word</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">word</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">word</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">word</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">dbc2sbc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">fast</span><span class="p">:</span>
+            <span class="n">word</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">fast_dbc2sbc</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">word</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">word</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">dbc2sbc</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">word</span><span class="p">])</span>
 
-    <span class="k">if</span> <span class="n">_is_url</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flag</span> <span class="o">&amp;</span> <span class="n">CHK_URL</span><span class="p">)</span> <span class="ow">and</span> <span class="n">_is_url</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">URL</span>
 
-    <span class="k">if</span> <span class="n">_is_eng_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flag</span> <span class="o">&amp;</span> <span class="n">CHK_ENGLISH</span><span class="p">)</span> <span class="ow">and</span> <span class="n">_is_eng_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">ENG</span>
 
-    <span class="k">if</span> <span class="n">_is_digit</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">flag</span> <span class="o">&amp;</span> <span class="n">CHK_NUMERICAL</span><span class="p">)</span> <span class="ow">and</span> <span class="n">_is_digit</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">DIG</span>
 
     <span class="k">return</span> <span class="n">NONE</span>

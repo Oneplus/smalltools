@@ -59,7 +59,7 @@
 <span id="smalltools-utils-chartypes-module"></span><h2>smalltools.utils.chartypes module<a class="headerlink" href="#module-smalltools.utils.chartypes" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="smalltools.utils.chartypes.chartype">
-<tt class="descclassname">smalltools.utils.chartypes.</tt><tt class="descname">chartype</tt><big>(</big><em>ch</em>, <em>lvl=1</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/chartypes.html#chartype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.chartypes.chartype" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">smalltools.utils.chartypes.</tt><tt class="descname">chartype</tt><big>(</big><em>ch</em>, <em>flags=65535</em>, <em>lvl=1</em>, <em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/chartypes.html#chartype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.chartypes.chartype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get type of character</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -67,16 +67,17 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>ch</strong> (<em>str or unicode</em>) &#8211; The character</li>
+<li><strong>flags</strong> (<em>int</em>) &#8211; The check flags. By default, all the three types are checked.</li>
 <li><strong>lvl</strong> (<em>int</em>) &#8211; The detect level</li>
 <li><strong>encoding</strong> (<em>str</em>) &#8211; The encoding</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>list</strong> &#8211;
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chartype</strong> &#8211;
 The chartype in different level</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list(int</p>
 </td>
 </tr>
 </tbody>
@@ -90,7 +91,7 @@ The chartype in different level</p>
 character and double byte character conversion.</p>
 <dl class="function">
 <dt id="smalltools.utils.sbcdbc.dbc2sbc">
-<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">dbc2sbc</tt><big>(</big><em>ch</em>, <em>flags=4369</em>, <em>includes=</em>, <span class="optional">[</span><span class="optional">]</span><em>excludes=</em>, <span class="optional">[</span><span class="optional">]</span><em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.dbc2sbc" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">dbc2sbc</tt><big>(</big><em>ch</em>, <em>flags=65535</em>, <em>includes=</em>, <span class="optional">[</span><span class="optional">]</span><em>excludes=</em>, <span class="optional">[</span><span class="optional">]</span><em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.dbc2sbc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert double bit character to single bit character.
 Return single bit character in unicode.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -225,7 +226,7 @@ The converted character</p>
 
 <dl class="function">
 <dt id="smalltools.utils.sbcdbc.sbc2dbc">
-<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">sbc2dbc</tt><big>(</big><em>ch</em>, <em>flags=4369</em>, <em>includes=</em>, <span class="optional">[</span><span class="optional">]</span><em>excludes=</em>, <span class="optional">[</span><span class="optional">]</span><em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.sbc2dbc" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">sbc2dbc</tt><big>(</big><em>ch</em>, <em>flags=65535</em>, <em>includes=</em>, <span class="optional">[</span><span class="optional">]</span><em>excludes=</em>, <span class="optional">[</span><span class="optional">]</span><em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.sbc2dbc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert single bit character to double bit character.
 Return double bit character in unicode</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -256,7 +257,7 @@ The converted character</p>
 
 <dl class="function">
 <dt id="smalltools.utils.sbcdbc.str_dbc2sbc">
-<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">str_dbc2sbc</tt><big>(</big><em>ustring</em>, <em>flags=4369</em>, <em>includes=</em>, <span class="optional">[</span><span class="optional">]</span><em>excludes=</em>, <span class="optional">[</span><span class="optional">]</span><em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#str_dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.str_dbc2sbc" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">str_dbc2sbc</tt><big>(</big><em>ustring</em>, <em>flags=65535</em>, <em>includes=</em>, <span class="optional">[</span><span class="optional">]</span><em>excludes=</em>, <span class="optional">[</span><span class="optional">]</span><em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#str_dbc2sbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.str_dbc2sbc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert str in single byte to double byte character by character
 It is very slow.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -287,7 +288,7 @@ The converted string</p>
 
 <dl class="function">
 <dt id="smalltools.utils.sbcdbc.str_sbc2dbc">
-<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">str_sbc2dbc</tt><big>(</big><em>ustring</em>, <em>flags=4369</em>, <em>includes=</em>, <span class="optional">[</span><span class="optional">]</span><em>excludes=</em>, <span class="optional">[</span><span class="optional">]</span><em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#str_sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.str_sbc2dbc" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">smalltools.utils.sbcdbc.</tt><tt class="descname">str_sbc2dbc</tt><big>(</big><em>ustring</em>, <em>flags=65535</em>, <em>includes=</em>, <span class="optional">[</span><span class="optional">]</span><em>excludes=</em>, <span class="optional">[</span><span class="optional">]</span><em>encoding=None</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/sbcdbc.html#str_sbc2dbc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.sbcdbc.str_sbc2dbc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert str in single byte to double byte character by character.
 It is very slow.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -324,8 +325,30 @@ The converted string</p>
 <span id="smalltools-utils-wordtypes-module"></span><h2>smalltools.utils.wordtypes module<a class="headerlink" href="#module-smalltools.utils.wordtypes" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="smalltools.utils.wordtypes.wordtype">
-<tt class="descclassname">smalltools.utils.wordtypes.</tt><tt class="descname">wordtype</tt><big>(</big><em>word</em>, <em>encoding=None</em>, <em>fast=False</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/wordtypes.html#wordtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.wordtypes.wordtype" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">smalltools.utils.wordtypes.</tt><tt class="descname">wordtype</tt><big>(</big><em>token</em>, <em>flags=65535</em>, <em>encoding=None</em>, <em>d2s=False</em>, <em>fast=False</em><big>)</big><a class="reference internal" href="_modules/smalltools/utils/wordtypes.html#wordtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.utils.wordtypes.wordtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect word&#8217;s type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>token</strong> (<em>str or unicode</em>) &#8211; The input string token</li>
+<li><strong>flags</strong> (<em>int</em>) &#8211; The actived check</li>
+<li><strong>d2s</strong> (<em>bool</em>) &#8211; Specify to conduct double byte to single byte conversion</li>
+<li><strong>fast</strong> (<em>bool</em>) &#8211; Specify to use fast <tt class="docutils literal"><span class="pre">dbc2sbc</span></tt></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>wordtype</strong> &#8211;
+The type of word</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 <div class="section" id="module-smalltools.utils">
