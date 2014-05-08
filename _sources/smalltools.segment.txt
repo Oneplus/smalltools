@@ -12,10 +12,10 @@ smalltools.segment.word2char module
     :undoc-members:
     :show-inheritance:
 
-smalltools.segment.word2tags module
------------------------------------
+smalltools.segment.word2labels module
+-------------------------------------
 
-.. automodule:: smalltools.segment.word2tags
+.. automodule:: smalltools.segment.word2labels
     :members:
     :undoc-members:
     :show-inheritance:
