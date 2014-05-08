@@ -19,16 +19,19 @@ except ImportError:
 if __name__=="__main__":
     usage = "Use to convert single byte character to double byte character"
     optparser = OptionParser(usage)
-    optparser.add_option("-f", dest="filename", help="use to specify filename")
-    optparser.add_option("-e", dest="encoding", default="utf-8", help="use to specify encoding")
-    optparser.add_option("-d", dest="conv_digit", default=False, action="store_true",
-            help="use to specify convert digit")
-    optparser.add_option("-p", dest="conv_punc", default=False, action="store_true",
-            help="use to specify convert punctation")
-    optparser.add_option("-f", dest="conv_letter", default=False, action="store_true",
-            help="use to specify convert english letter")
-    optparser.add_option("-x", dest="fast", default=False, action="store_true",
-            help="use to specify fast handle")
+    optparser.add_option("-f", "--filename", dest="filename",
+            help="use to specify filename")
+    optparser.add_option("-e", "--encoding", dest="encoding", default="utf-8",
+            help="use to specify encoding")
+    optparser.add_option("-d", "--conv-digit", dest="conv_digit", default=False,
+            action="store_true", help="use to specify convert digit")
+    optparser.add_option("-p", "--conv-punc", dest="conv_punc", default=False,
+            action="store_true", help="use to specify convert punctation")
+    optparser.add_option("-l", "--conv-letter", dest="conv_letter", default=False,
+            action="store_true", help="use to specify convert english letter")
+    optparser.add_option("-x", "--fast", dest="fast", default=False,
+            action="store_true", help="use to specify fast handle")
+
     opts, args = optparser.parse_args()
     try:
         fp=open(opts.filename, "r")
