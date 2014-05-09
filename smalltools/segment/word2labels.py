@@ -102,7 +102,7 @@ def WordToLabels(token,
 
     Return
     ------
-    list
+    labels: list
         The list of list, each has two elements: ``label`` and ``character``
     '''
     ret = []

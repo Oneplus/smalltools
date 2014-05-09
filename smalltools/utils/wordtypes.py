@@ -3,10 +3,10 @@ import sys
 
 from sbcdbc import dbc2sbc, fast_dbc2sbc
 
-URL=0
-ENG=1
-DIG=2
-NONE=-1
+URL=0x0001
+ENG=0x0002
+DIG=0x0004
+NONE=0x0000
 
 _url_regex = re.compile("(https|ftp|file)://"
         "[-A-Za-z0-9+&@#/%?=~_|!:,.;]*"
@@ -37,22 +37,47 @@ def _is_digit(word):
         return True
     return False
 
-def wordtype(word, encoding=None, fast=False):
+
+CHK_URL = 0x0001
+CHK_ENGLISH = 0x0002
+CHK_NUMERICAL = 0x0004
+
+def wordtype(token, flags=0xffff, encoding=None, d2s = False, fast = False):
+    '''
+    Detect word's type
+
+    Parameters
+    ----------
+    token : str or unicode
+        The input string token
+    flags : int
+        The actived check
+    d2s : bool
+        Specify to conduct double byte to single byte conversion
+    fast : bool
+        Specify to use fast ``dbc2sbc``
+
+    Return
+    ------
+    wordtype : int
+        The type of word
+    '''
     if encoding is not None:
         word = word.decode(encoding)
 
-    if fast:
-        word = "".join([fast_dbc2sbc(ch) for ch in word])
-    else:
-        word = "".join([dbc2sbc(ch) for ch in word])
+    if dbc2sbc:
+        if fast:
+            word = "".join([fast_dbc2sbc(ch, encoding=None) for ch in word])
+        else:
+            word = "".join([dbc2sbc(ch, encoding=None) for ch in word])
 
-    if _is_url(word):
+    if (flag & CHK_URL) and _is_url(word):
         return URL
 
-    if _is_eng_word(word):
+    if (flag & CHK_ENGLISH) and _is_eng_word(word):
         return ENG
 
-    if _is_digit(word):
+    if (flag & CHK_NUMERICAL) and _is_digit(word):
         return DIG
 
     return NONE

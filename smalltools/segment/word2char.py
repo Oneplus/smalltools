@@ -5,12 +5,17 @@ def WordToCharacters(token, encoding="utf-8"):
     '''
     Convert word to characters
 
-    Args:
-        token (str): The input string token.
-        encoding (str): The encoding.
+    Parameters
+    ----------
+    token : str
+        The input string token.
+    encoding : str
+        The encoding.
 
-    Returns:
-        list(str): The list of characters
+    Return
+    ------
+    list(str)
+        The list of characters
     '''
     ret = []
     for ch in token.decode(encoding):
@@ -24,12 +29,17 @@ def WordToCharactersWithRegex(token, MATCHES, encoding="utf-8"):
     Convert word to characters, if certain part of the token matches
     by the regex, this part is treated as a single word.
 
-    Args:
-        token (str): The input string token.
-        MATCHES (list(re)): The predefined regex rules.
-        encoding (str): The encoding.
+    Parameters
+    ----------
+    token :str
+        The input string token.
+    MATCHES : list(re)
+        The predefined regex rules.
+    encoding : str
+        The encoding.
 
-    Returns:
+    Return
+    ------
         ret (list(str)): The list of characters
     '''
     ret = []

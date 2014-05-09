@@ -49,7 +49,7 @@ if __name__=="__main__":
 
     if opts.fast:
         for line in fp:
-            print fast_str_sbc2dbc(line.strip(), flags, opts.encoding).encode(opts.encoding)
+            print fast_str_sbc2dbc(line.strip(), opts.encoding).encode(opts.encoding)
     else:
         for line in fp:
-            print str_sbc2dbc(line.strip(), opts.encoding).encode(opts.encoding)
+            print str_sbc2dbc(line.strip(), flag, [], [], opts.encoding).encode(opts.encoding)

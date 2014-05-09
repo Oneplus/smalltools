@@ -52,4 +52,4 @@ if __name__=="__main__":
             print fast_str_dbc2sbc(line.strip(), opts.encoding).encode(opts.encoding)
     else:
         for line in fp:
-            print str_dbc2sbc(line.strip(), flags, opts.encoding).encode(opts.encoding)
+            print str_dbc2sbc(line.strip(), flags, [], [], opts.encoding).encode(opts.encoding)
