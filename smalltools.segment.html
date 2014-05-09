@@ -59,6 +59,41 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="module-smalltools.segment.mm">
+<span id="smalltools-segment-mm-module"></span><h2>smalltools.segment.mm module<a class="headerlink" href="#module-smalltools.segment.mm" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="smalltools.segment.mm.MaximumMatching">
+<tt class="descclassname">smalltools.segment.mm.</tt><tt class="descname">MaximumMatching</tt><big>(</big><em>chars</em>, <em>lexicon</em>, <em>longest=7</em>, <em>segment_character=False</em>, <em>encoding='utf-8'</em><big>)</big><a class="reference internal" href="_modules/smalltools/segment/mm.html#MaximumMatching"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smalltools.segment.mm.MaximumMatching" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple maximum matching algorithm to detect word boundary from token</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>chars</strong> (<em>str or unicode</em>) &#8211; The input characters</li>
+<li><strong>lexicon</strong> (<em>str</em>) &#8211; The lexicon</li>
+<li><strong>maximum_length</strong> (<em>int</em>) &#8211; The maximum length of potential word</li>
+<li><strong>segment_character</strong> (<em>bool</em>) &#8211; If this flag is true, the unmatched character is considered as a
+single word. Otherwise, the contiguous unmatched characters are
+considered as a single word.</li>
+<li><strong>encoding</strong> (<em>str</em>) &#8211; The encoding</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>words</strong> &#8211;
+Return a list of maximum matching words. Each element of the list
+is a tuple consists two objects, the word and a flag specify if
+the word match lexicon</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="module-smalltools.segment.word2char">
 <span id="smalltools-segment-word2char-module"></span><h2>smalltools.segment.word2char module<a class="headerlink" href="#module-smalltools.segment.word2char" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -188,6 +223,7 @@ word segmentation.</p>
   <ul>
 <li><a class="reference internal" href="#">smalltools.segment package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-smalltools.segment.mm">smalltools.segment.mm module</a></li>
 <li><a class="reference internal" href="#module-smalltools.segment.word2char">smalltools.segment.word2char module</a></li>
 <li><a class="reference internal" href="#module-smalltools.segment.word2labels">smalltools.segment.word2labels module</a></li>
 <li><a class="reference internal" href="#module-smalltools.segment">Module contents</a></li>

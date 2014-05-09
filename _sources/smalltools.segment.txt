@@ -4,6 +4,14 @@ smalltools.segment package
 Submodules
 ----------
 
+smalltools.segment.mm module
+----------------------------
+
+.. automodule:: smalltools.segment.mm
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 smalltools.segment.word2char module
 -----------------------------------
 
