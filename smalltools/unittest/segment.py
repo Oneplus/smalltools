@@ -5,7 +5,7 @@ try:
 except ImportError:
     from unittest import TestCase, main
 
-from ..segment.word2tags import BIstyle, BIESstyle, BB2B3IESstyle
+from ..segment.word2labels import _BIstyle, _BIESstyle, _BB2B3IESstyle
 
 class UtilsTest(TestCase):
 
@@ -16,10 +16,10 @@ class UtilsTest(TestCase):
         pass
 
     def testWord2Tags(self):
-        self.assertEquals(BIstyle("word"),  ["B", "I", "I", "I"])
-        self.assertEquals(BIstyle("am"),    ["B", "I"])
-        self.assertEquals(BIstyle("I"),     ["B"])
-        self.assertEquals(BIESstyle("are"), ["B", "I", "E"])
+        self.assertEquals(_BIstyle("word"),  ["B", "I", "I", "I"])
+        self.assertEquals(_BIstyle("am"),    ["B", "I"])
+        self.assertEquals(_BIstyle("I"),     ["B"])
+        self.assertEquals(_BIESstyle("are"), ["B", "I", "E"])
 
 if __name__=="__main__":
     main()

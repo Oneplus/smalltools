@@ -17,4 +17,4 @@ rePercentageFloatNumber = re.compile('[0-9]*\.?[0-9]*\%')
 # It's extramely ugly but very helpful.
 reURL = re.compile("((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)")
 
-
+from generalize import Generalize
