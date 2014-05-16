@@ -10,6 +10,7 @@ Subpackages
     smalltools.detect
     smalltools.io
     smalltools.lang
+    smalltools.ngram
     smalltools.regex
     smalltools.segment
     smalltools.unittest

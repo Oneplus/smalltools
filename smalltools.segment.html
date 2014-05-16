@@ -72,7 +72,7 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>chars</strong> (<em>str or unicode</em>) &#8211; The input characters</li>
 <li><strong>lexicon</strong> (<em>str</em>) &#8211; The lexicon</li>
-<li><strong>maximum_length</strong> (<em>int</em>) &#8211; The maximum length of potential word</li>
+<li><strong>longest</strong> (<em>int</em>) &#8211; The maximum length of potential word</li>
 <li><strong>segment_character</strong> (<em>bool</em>) &#8211; If this flag is true, the unmatched character is considered as a
 single word. Otherwise, the contiguous unmatched characters are
 considered as a single word.</li>
@@ -110,11 +110,10 @@ the word match lexicon</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>list</strong> &#8211;
-The list of characters</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The list of characters</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list(str)</p>
 </td>
 </tr>
 </tbody>
@@ -137,11 +136,10 @@ by the regex, this part is treated as a single word.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ret</strong> &#8211;
-The list of characters</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ret (list(str))</strong></p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list(str)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">The list of characters</p>
 </td>
 </tr>
 </tbody>

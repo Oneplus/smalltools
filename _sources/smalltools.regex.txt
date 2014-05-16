@@ -1,6 +1,18 @@
 smalltools.regex package
 ========================
 
+Submodules
+----------
+
+smalltools.regex.generalize module
+----------------------------------
+
+.. automodule:: smalltools.regex.generalize
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
 Module contents
 ---------------
 
