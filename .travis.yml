@@ -5,8 +5,8 @@ python:
     - "2.7"
 
 before_script:
-    sudo apt-get install mpich2
-    sudo apt-get install python-mpi4py
+    - sudo apt-get install mpich2
+    - sudo apt-get install python-mpi4py
 
 script:
     python setup.py build
