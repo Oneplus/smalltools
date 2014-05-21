@@ -1,6 +1,7 @@
 Smalltools
 ==========
 [![Build Status](https://travis-ci.org/Oneplus/smalltools.svg?branch=master)](https://travis-ci.org/Oneplus/smalltools)
+[![Code Health](https://landscape.io/github/Oneplus/smalltools/master/landscape.png)](https://landscape.io/github/Oneplus/smalltools/master)
 
 死毛兔, A collection of text processing script. Functions implemented includes
 
