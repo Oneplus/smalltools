@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from mpi4py import MPI
 import logging
+import sys
 
 comm = MPI.COMM_WORLD
 size = comm.size
@@ -10,7 +11,7 @@ name = MPI.Get_processor_name()
 
 FORMAT = "[%(levelname)5s] %(asctime)-15s %(message)s"
 logging.basicConfig(format=FORMAT,
-        level=logging.DEBUG,
+        level=logging.WARN,
         datefmt="%Y-%m-%d %H:%M:%S")
 logger = logging.getLogger(name)
 
