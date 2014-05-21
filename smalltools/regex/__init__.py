@@ -17,4 +17,13 @@ rePercentageFloatNumber = re.compile('[0-9]*\.?[0-9]*\%')
 # It's extramely ugly but very helpful.
 reURL = re.compile("((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)")
 
+reEnglish = re.compile("[a-zA-Z][a-zA-Z\.,]*")
+
+# it include the digit and english and their mixture
+reProductAndModel = re.compile("[0-9a-zA-Z][0-9a-zA-Z\.,-]*")
+
+reDigit = re.compile("[0-9][0-9\.,]*%?")
+
+reDigitTimeAndPercentage = re.compile("[0-9][0-9\.]*:[0-9][0-9\.]*")
+
 from generalize import Generalize
