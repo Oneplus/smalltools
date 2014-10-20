@@ -49,7 +49,6 @@ def WordToCharactersWithRegex(token, MATCHES, encoding="utf-8"):
         for m in MATCH.finditer(token):
             matches.append((m.start(), m.end()))
     matches.sort(key=lambda l: (l[0], -l[1]))
-
     start = 0
     for s, e in matches:
         # To handle the overlap regex

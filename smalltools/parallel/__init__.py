@@ -1,2 +1,5 @@
-from Parallel import Parallel, \
-                     ParallelAndSyncWrite
+from mpi import Parallel, \
+                ParallelAndSyncWrite
+
+from thread import MultiThreaded, \
+                   MultiThreadedSyncWrite
